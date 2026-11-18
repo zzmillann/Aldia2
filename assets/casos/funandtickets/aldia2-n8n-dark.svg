@@ -1,0 +1,638 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3176 5236" font-family="Inter, Open Sans, Helvetica, Arial, sans-serif">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3B40"/></pattern></defs>
+<rect width="3176" height="5236" fill="#1F1F22"/><rect width="3176" height="5236" fill="url(#g)"/>
+<rect x="904" y="472" width="1104" height="336" rx="6" fill="#3A3320" stroke="#6B5A2A"/>
+<text x="920" y="506" font-size="18" font-weight="700" fill="#D9D2B8">Entrada y normalización inicial</text>
+<rect x="120" y="1480" width="1456" height="624" rx="6" fill="#2E2E31" stroke="#5A4C2A"/>
+<text x="136" y="1514" font-size="18" font-weight="700" fill="#D9D2B8">Lectura de datos actuales</text>
+<rect x="120" y="824" width="2836" height="624" rx="6" fill="#3B2A22" stroke="#5A4C2A"/>
+<text x="136" y="858" font-size="18" font-weight="700" fill="#D9D2B8">Preparación de Drive</text>
+<rect x="1464" y="4488" width="1376" height="528" rx="6" fill="#3A3320" stroke="#6B5A2A"/>
+<rect x="1608" y="1464" width="1328" height="656" rx="6" fill="#3A3320" stroke="#6B5A2A"/>
+<text x="1624" y="1498" font-size="18" font-weight="700" fill="#D9D2B8">Lectura del archivo actual</text>
+<rect x="120" y="2136" width="2816" height="1200" rx="6" fill="#2E2E31" stroke="#5A4C2A"/>
+<text x="136" y="2170" font-size="18" font-weight="700" fill="#D9D2B8">Gestión de cancelaciones</text>
+<rect x="136" y="3384" width="2788" height="384" rx="6" fill="#2C2540" stroke="#4B3C78"/>
+<text x="152" y="3418" font-size="18" font-weight="700" fill="#D9D2B8">Gestion de duplicados</text>
+<rect x="136" y="3816" width="2704" height="656" rx="6" fill="#3B2A22" stroke="#5A4C2A"/>
+<text x="152" y="3850" font-size="18" font-weight="700" fill="#D9D2B8">IEscritura dinámica en bloque pendiente</text>
+<path d="M620,3535.0 C690.0,3535.0 690.0,3530.0 760,3530.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="620" cy="3535.0" r="5" fill="#77798A"/>
+<path d="M620,3535.0 C1274.0,3535.0 1274.0,3530.0 1928,3530.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="620" cy="3535.0" r="5" fill="#77798A"/>
+<path d="M620,3557.0 C740,3557.0 740,3687.0 418.0,3687.0 S96,4170.0 216,4170.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="620" cy="3557.0" r="5" fill="#77798A"/>
+<path d="M860,3530.0 C920,3530.0 908,3530.0 968,3530.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="860" cy="3530.0" r="5" fill="#77798A"/>
+<path d="M1308,666.0 C1370.0,666.0 1370.0,666.0 1432,666.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1308" cy="666.0" r="5" fill="#77798A"/>
+<path d="M1308,666.0 C1388.0,666.0 1388.0,926.0 1468,926.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1308" cy="666.0" r="5" fill="#77798A"/>
+<path d="M1756,666.0 C1818.0,666.0 1818.0,666.0 1880,666.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1756" cy="666.0" r="5" fill="#77798A"/>
+<path d="M2636,1962.0 C2696,1962.0 2668,1818.0 2728,1818.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2636" cy="1962.0" r="5" fill="#77798A"/>
+<path d="M2524,4266.0 C2644,4266.0 2644,4396.0 2018.0,4396.0 S1392,4906.0 1512,4906.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2524" cy="4266.0" r="5" fill="#77798A"/>
+<path d="M2524,4266.0 C2644,4266.0 2644,4396.0 2170.0,4396.0 S1696,4650.0 1816,4650.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2524" cy="4266.0" r="5" fill="#77798A"/>
+<path d="M2524,4266.0 C2644,4266.0 2644,4396.0 2282.0,4396.0 S1920,4762.0 2040,4762.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2524" cy="4266.0" r="5" fill="#77798A"/>
+<path d="M428,3546.0 C488,3546.0 460,3546.0 520,3546.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="428" cy="3546.0" r="5" fill="#77798A"/>
+<path d="M2428,4010.0 C2488,4010.0 2460,4010.0 2520,4010.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2428" cy="4010.0" r="5" fill="#77798A"/>
+<path d="M2252,4223.0 C2312,4223.0 2268,4010.0 2328,4010.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2252" cy="4223.0" r="5" fill="#77798A"/>
+<path d="M2252,4245.0 C2338.0,4245.0 2338.0,4266.0 2424,4266.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2252" cy="4245.0" r="5" fill="#77798A"/>
+<path d="M316,4170.0 C376,4170.0 364,4170.0 424,4170.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="316" cy="4170.0" r="5" fill="#77798A"/>
+<path d="M316,4170.0 C436,4170.0 436,4300.0 290.0,4300.0 S144,3962.0 264,3962.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="316" cy="4170.0" r="5" fill="#77798A"/>
+<path d="M316,4170.0 C378.0,4170.0 378.0,4378.0 440,4378.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="316" cy="4170.0" r="5" fill="#77798A"/>
+<path d="M524,4170.0 C586.0,4170.0 586.0,4170.0 648,4170.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="524" cy="4170.0" r="5" fill="#77798A"/>
+<path d="M748,4159.0 C808,4159.0 732,3978.0 792,3978.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="748" cy="4159.0" r="5" fill="#77798A"/>
+<path d="M748,4159.0 C890.0,4159.0 890.0,4090.0 1032,4090.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="748" cy="4159.0" r="5" fill="#77798A"/>
+<path d="M748,4181.0 C818.0,4181.0 818.0,4234.0 888,4234.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="748" cy="4181.0" r="5" fill="#77798A"/>
+<path d="M892,3978.0 C962.0,3978.0 962.0,4090.0 1032,4090.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="892" cy="3978.0" r="5" fill="#77798A"/>
+<path d="M1324,4090.0 C1444,4090.0 1444,4220.0 1234.0,4220.0 S1024,4314.0 1144,4314.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1324" cy="4090.0" r="5" fill="#77798A"/>
+<path d="M988,4234.0 C1066.0,4234.0 1066.0,4314.0 1144,4314.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="988" cy="4234.0" r="5" fill="#77798A"/>
+<path d="M1244,4314.0 C1304,4314.0 1276,4314.0 1336,4314.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1244" cy="4314.0" r="5" fill="#77798A"/>
+<path d="M1644,4138.0 C1704,4138.0 1692,4138.0 1752,4138.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1644" cy="4138.0" r="5" fill="#77798A"/>
+<path d="M1644,4138.0 C1704,4138.0 1596,3930.0 1656,3930.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1644" cy="4138.0" r="5" fill="#77798A"/>
+<path d="M1852,4127.0 C1912,4127.0 1900,3994.0 1960,3994.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1852" cy="4127.0" r="5" fill="#77798A"/>
+<path d="M1852,4149.0 C1914.0,4149.0 1914.0,4234.0 1976,4234.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1852" cy="4149.0" r="5" fill="#77798A"/>
+<path d="M2060,3994.0 C2180,3994.0 2180,4124.0 2018.0,4124.0 S1856,4234.0 1976,4234.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2060" cy="3994.0" r="5" fill="#77798A"/>
+<path d="M2076,4234.0 C2136,4234.0 2092,4234.0 2152,4234.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2076" cy="4234.0" r="5" fill="#77798A"/>
+<path d="M1436,4303.0 C1496,4303.0 1484,4138.0 1544,4138.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1436" cy="4303.0" r="5" fill="#77798A"/>
+<path d="M1436,4325.0 C1546.0,4325.0 1546.0,3930.0 1656,3930.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1436" cy="4325.0" r="5" fill="#77798A"/>
+<path d="M300,2938.0 C378.0,2938.0 378.0,2906.0 456,2906.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="300" cy="2938.0" r="5" fill="#77798A"/>
+<path d="M556,2895.0 C616,2895.0 540,2650.0 600,2650.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="556" cy="2895.0" r="5" fill="#77798A"/>
+<path d="M556,2917.0 C834.0,2917.0 834.0,2986.0 1112,2986.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="556" cy="2917.0" r="5" fill="#77798A"/>
+<path d="M556,2917.0 C834.0,2917.0 834.0,3162.0 1112,3162.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="556" cy="2917.0" r="5" fill="#77798A"/>
+<path d="M700,2650.0 C760,2650.0 716,2634.0 776,2634.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="700" cy="2650.0" r="5" fill="#77798A"/>
+<path d="M700,2650.0 C820,2650.0 820,2780.0 650.0,2780.0 S480,2442.0 600,2442.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="700" cy="2650.0" r="5" fill="#77798A"/>
+<path d="M1212,2986.0 C1498.0,2986.0 1498.0,3194.0 1784,3194.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1212" cy="2986.0" r="5" fill="#77798A"/>
+<path d="M1212,2986.0 C1370.0,2986.0 1370.0,3002.0 1528,3002.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1212" cy="2986.0" r="5" fill="#77798A"/>
+<path d="M1212,2986.0 C1274.0,2986.0 1274.0,3162.0 1336,3162.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1212" cy="2986.0" r="5" fill="#77798A"/>
+<path d="M876,2623.0 C936,2623.0 924,2522.0 984,2522.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="876" cy="2623.0" r="5" fill="#77798A"/>
+<path d="M876,2645.0 C1162.0,2645.0 1162.0,2826.0 1448,2826.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="876" cy="2645.0" r="5" fill="#77798A"/>
+<path d="M1084,2522.0 C1144,2522.0 1132,2522.0 1192,2522.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1084" cy="2522.0" r="5" fill="#77798A"/>
+<path d="M1292,2511.0 C1370.0,2511.0 1370.0,2442.0 1448,2442.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1292" cy="2511.0" r="5" fill="#77798A"/>
+<path d="M1292,2533.0 C1370.0,2533.0 1370.0,2634.0 1448,2634.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1292" cy="2533.0" r="5" fill="#77798A"/>
+<path d="M1548,2442.0 C1674.0,2442.0 1674.0,2458.0 1800,2458.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2442.0" r="5" fill="#77798A"/>
+<path d="M1548,2442.0 C1674.0,2442.0 1674.0,2266.0 1800,2266.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2442.0" r="5" fill="#77798A"/>
+<path d="M1548,2442.0 C1674.0,2442.0 1674.0,2618.0 1800,2618.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2442.0" r="5" fill="#77798A"/>
+<path d="M1548,2442.0 C2082.0,2442.0 2082.0,2634.0 2616,2634.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2442.0" r="5" fill="#77798A"/>
+<path d="M1548,2442.0 C1818.0,2442.0 1818.0,2218.0 2088,2218.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2442.0" r="5" fill="#77798A"/>
+<path d="M1548,2634.0 C1778.0,2634.0 1778.0,2634.0 2008,2634.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2634.0" r="5" fill="#77798A"/>
+<path d="M1548,2634.0 C2082.0,2634.0 2082.0,2634.0 2616,2634.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2634.0" r="5" fill="#77798A"/>
+<path d="M1548,2634.0 C1818.0,2634.0 1818.0,2218.0 2088,2218.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2634.0" r="5" fill="#77798A"/>
+<path d="M1884,3194.0 C1944,3194.0 1884,3194.0 1944,3194.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1884" cy="3194.0" r="5" fill="#77798A"/>
+<path d="M2108,2986.0 C2168,2986.0 2156,2986.0 2216,2986.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2108" cy="2986.0" r="5" fill="#77798A"/>
+<path d="M1900,2458.0 C1960,2458.0 1948,2458.0 2008,2458.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1900" cy="2458.0" r="5" fill="#77798A"/>
+<path d="M1132,4090.0 C1192,4090.0 1164,4090.0 1224,4090.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1132" cy="4090.0" r="5" fill="#77798A"/>
+<path d="M1436,3530.0 C1496,3530.0 1468,3530.0 1528,3530.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1436" cy="3530.0" r="5" fill="#77798A"/>
+<path d="M1612,4906.0 C1672,4906.0 1644,4906.0 1704,4906.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1612" cy="4906.0" r="5" fill="#77798A"/>
+<path d="M1548,2815.0 C1642.0,2815.0 1642.0,2810.0 1736,2810.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2815.0" r="5" fill="#77798A"/>
+<path d="M1548,2837.0 C1778.0,2837.0 1778.0,2986.0 2008,2986.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1548" cy="2837.0" r="5" fill="#77798A"/>
+<path d="M1244,3530.0 C1304,3530.0 1276,3530.0 1336,3530.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1244" cy="3530.0" r="5" fill="#77798A"/>
+<path d="M1532,666.0 C1594.0,666.0 1594.0,666.0 1656,666.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1532" cy="666.0" r="5" fill="#77798A"/>
+<path d="M1980,666.0 C2100,666.0 2100,796.0 1842.0,796.0 S1584,1642.0 1704,1642.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1980" cy="666.0" r="5" fill="#77798A"/>
+<path d="M1980,666.0 C2100,666.0 2100,796.0 1930.0,796.0 S1760,938.0 1880,938.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1980" cy="666.0" r="5" fill="#77798A"/>
+<path d="M300,1754.0 C362.0,1754.0 362.0,1754.0 424,1754.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="300" cy="1754.0" r="5" fill="#77798A"/>
+<path d="M524,1754.0 C586.0,1754.0 586.0,1754.0 648,1754.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="524" cy="1754.0" r="5" fill="#77798A"/>
+<path d="M524,1754.0 C584,1754.0 584,1494.0 644,1494.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="524" cy="1754.0" r="5" fill="#77798A"/>
+<path d="M748,1743.0 C922.0,1743.0 922.0,1658.0 1096,1658.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="748" cy="1743.0" r="5" fill="#77798A"/>
+<path d="M748,1765.0 C810.0,1765.0 810.0,1850.0 872,1850.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="748" cy="1765.0" r="5" fill="#77798A"/>
+<path d="M972,1839.0 C1034.0,1839.0 1034.0,1850.0 1096,1850.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="972" cy="1839.0" r="5" fill="#77798A"/>
+<path d="M972,1861.0 C1032,1861.0 1032,2070.0 1092,2070.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="972" cy="1861.0" r="5" fill="#77798A"/>
+<path d="M1196,1658.0 C1258.0,1658.0 1258.0,1754.0 1320,1754.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1196" cy="1658.0" r="5" fill="#77798A"/>
+<path d="M1196,1850.0 C1258.0,1850.0 1258.0,1754.0 1320,1754.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1196" cy="1850.0" r="5" fill="#77798A"/>
+<path d="M1420,1754.0 C1882.0,1754.0 1882.0,1978.0 2344,1978.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1420" cy="1754.0" r="5" fill="#77798A"/>
+<path d="M1420,1754.0 C1802.0,1754.0 1802.0,1994.0 2184,1994.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1420" cy="1754.0" r="5" fill="#77798A"/>
+<path d="M2284,1994.0 C2344,1994.0 2284,1978.0 2344,1978.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2284" cy="1994.0" r="5" fill="#77798A"/>
+<path d="M2444,1978.0 C2504,1978.0 2476,1962.0 2536,1962.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2444" cy="1978.0" r="5" fill="#77798A"/>
+<path d="M924,1151.0 C1042.0,1151.0 1042.0,1082.0 1160,1082.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="924" cy="1151.0" r="5" fill="#77798A"/>
+<path d="M924,1173.0 C986.0,1173.0 986.0,1274.0 1048,1274.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="924" cy="1173.0" r="5" fill="#77798A"/>
+<path d="M1260,1082.0 C1386.0,1082.0 1386.0,1178.0 1512,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1260" cy="1082.0" r="5" fill="#77798A"/>
+<path d="M1372,1274.0 C1442.0,1274.0 1442.0,1178.0 1512,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1372" cy="1274.0" r="5" fill="#77798A"/>
+<path d="M700,1178.0 C762.0,1178.0 762.0,1162.0 824,1162.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="700" cy="1178.0" r="5" fill="#77798A"/>
+<path d="M1148,1274.0 C1210.0,1274.0 1210.0,1274.0 1272,1274.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1148" cy="1274.0" r="5" fill="#77798A"/>
+<path d="M1612,1178.0 C1672,1178.0 1660,1178.0 1720,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1612" cy="1178.0" r="5" fill="#77798A"/>
+<path d="M1820,1178.0 C1882.0,1178.0 1882.0,1178.0 1944,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1820" cy="1178.0" r="5" fill="#77798A"/>
+<path d="M2268,1274.0 C2330.0,1274.0 2330.0,1274.0 2392,1274.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2268" cy="1274.0" r="5" fill="#77798A"/>
+<path d="M2044,1167.0 C2218.0,1167.0 2218.0,1082.0 2392,1082.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2044" cy="1167.0" r="5" fill="#77798A"/>
+<path d="M2044,1189.0 C2106.0,1189.0 2106.0,1274.0 2168,1274.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2044" cy="1189.0" r="5" fill="#77798A"/>
+<path d="M2492,1082.0 C2554.0,1082.0 2554.0,1178.0 2616,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2492" cy="1082.0" r="5" fill="#77798A"/>
+<path d="M2492,1274.0 C2554.0,1274.0 2554.0,1178.0 2616,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2492" cy="1274.0" r="5" fill="#77798A"/>
+<path d="M2716,1178.0 C2836,1178.0 2836,1308.0 1458.0,1308.0 S80,1754.0 200,1754.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2716" cy="1178.0" r="5" fill="#77798A"/>
+<path d="M1628,3002.0 C1688,3002.0 1676,3002.0 1736,3002.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1628" cy="3002.0" r="5" fill="#77798A"/>
+<path d="M1836,2810.0 C1922.0,2810.0 1922.0,2826.0 2008,2826.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1836" cy="2810.0" r="5" fill="#77798A"/>
+<path d="M1836,3002.0 C1922.0,3002.0 1922.0,2826.0 2008,2826.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1836" cy="3002.0" r="5" fill="#77798A"/>
+<path d="M1068,3530.0 C1128,3530.0 1084,3530.0 1144,3530.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1068" cy="3530.0" r="5" fill="#77798A"/>
+<path d="M2828,1807.0 C2948,1807.0 2948,1937.0 1514.0,1937.0 S80,2938.0 200,2938.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2828" cy="1807.0" r="5" fill="#77798A"/>
+<path d="M2828,1829.0 C2948,1829.0 2948,1959.0 1578.0,1959.0 S208,3546.0 328,3546.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2828" cy="1829.0" r="5" fill="#77798A"/>
+<path d="M1084,666.0 C1144,666.0 1036,458.0 1096,458.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1084" cy="666.0" r="5" fill="#77798A"/>
+<path d="M364,3962.0 C450.0,3962.0 450.0,3946.0 536,3946.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="364" cy="3962.0" r="5" fill="#77798A"/>
+<path d="M1804,1642.0 C1864,1642.0 1852,1658.0 1912,1658.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1804" cy="1642.0" r="5" fill="#77798A"/>
+<path d="M2012,1658.0 C2072,1658.0 2044,1658.0 2104,1658.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2012" cy="1658.0" r="5" fill="#77798A"/>
+<path d="M2204,1658.0 C2264,1658.0 2236,1674.0 2296,1674.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2204" cy="1658.0" r="5" fill="#77798A"/>
+<path d="M2396,1663.0 C2516,1663.0 2516,1793.0 1354.0,1793.0 S192,1178.0 312,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2396" cy="1663.0" r="5" fill="#77798A"/>
+<path d="M2396,1685.0 C2474.0,1685.0 2474.0,1690.0 2552,1690.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2396" cy="1685.0" r="5" fill="#77798A"/>
+<path d="M2028,1962.0 C2148,1962.0 2148,2092.0 1970.0,2092.0 S1792,1658.0 1912,1658.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2028" cy="1962.0" r="5" fill="#77798A"/>
+<path d="M2652,1679.0 C2772,1679.0 2772,1809.0 1482.0,1809.0 S192,1178.0 312,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2652" cy="1679.0" r="5" fill="#77798A"/>
+<path d="M2652,1701.0 C2772,1701.0 2772,1831.0 2290.0,1831.0 S1808,1962.0 1928,1962.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2652" cy="1701.0" r="5" fill="#77798A"/>
+<path d="M2140,4762.0 C2200,4762.0 2188,4762.0 2248,4762.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2140" cy="4762.0" r="5" fill="#77798A"/>
+<path d="M2348,4762.0 C2410.0,4762.0 2410.0,4762.0 2472,4762.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2348" cy="4762.0" r="5" fill="#77798A"/>
+<path d="M2188,2218.0 C2266.0,2218.0 2266.0,2218.0 2344,2218.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2188" cy="2218.0" r="5" fill="#77798A"/>
+<path d="M2444,2218.0 C2506.0,2218.0 2506.0,2218.0 2568,2218.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2444" cy="2218.0" r="5" fill="#77798A"/>
+<path d="M412,1178.0 C506.0,1178.0 506.0,1178.0 600,1178.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="412" cy="1178.0" r="5" fill="#77798A"/>
+<path d="M1436,3162.0 C1498.0,3162.0 1498.0,3194.0 1560,3194.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1436" cy="3162.0" r="5" fill="#77798A"/>
+<path d="M540,4378.0 C602.0,4378.0 602.0,4378.0 664,4378.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="540" cy="4378.0" r="5" fill="#77798A"/>
+<path d="M764,4378.0 C826.0,4378.0 826.0,4378.0 888,4378.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="764" cy="4378.0" r="5" fill="#77798A"/>
+<path d="M1980,949.0 C2066.0,949.0 2066.0,1018.0 2152,1018.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1980" cy="949.0" r="5" fill="#77798A"/>
+<path d="M1196,447.0 C1258.0,447.0 1258.0,266.0 1320,266.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1196" cy="447.0" r="5" fill="#77798A"/>
+<path d="M1196,469.0 C1256,469.0 1148,666.0 1208,666.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1196" cy="469.0" r="5" fill="#77798A"/>
+<path d="M1420,266.0 C1482.0,266.0 1482.0,170.0 1544,170.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1420" cy="266.0" r="5" fill="#77798A"/>
+<path d="M1420,266.0 C1482.0,266.0 1482.0,330.0 1544,330.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1420" cy="266.0" r="5" fill="#77798A"/>
+<path d="M1644,330.0 C1706.0,330.0 1706.0,330.0 1768,330.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1644" cy="330.0" r="5" fill="#77798A"/>
+<path d="M1192,2070.0 C1252,2070.0 1252,2070.0 1312,2070.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1192" cy="2070.0" r="5" fill="#77798A"/>
+<path d="M1412,2070.0 C1472,2070.0 1472,2070.0 1532,2070.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1412" cy="2070.0" r="5" fill="#77798A"/>
+<path d="M1632,2070.0 C1692,2070.0 1692,2070.0 1752,2070.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1632" cy="2070.0" r="5" fill="#77798A"/>
+<path d="M1852,2059.0 C1972,2059.0 1972,2189.0 1474.0,2189.0 S976,1850.0 1096,1850.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1852" cy="2059.0" r="5" fill="#77798A"/>
+<path d="M1852,2081.0 C1912,2081.0 1912,2170.0 1972,2170.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="1852" cy="2081.0" r="5" fill="#77798A"/>
+<path d="M2072,2170.0 C2192,2170.0 2192,2300.0 1584.0,2300.0 S976,1850.0 1096,1850.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="2072" cy="2170.0" r="5" fill="#77798A"/>
+<path d="M744,1483.0 C804,1483.0 804,1494.0 864,1494.0" fill="none" stroke="#77798A" stroke-width="2.5"/>
+<circle cx="744" cy="1483.0" r="5" fill="#77798A"/>
+<rect x="520" y="3496" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(546,3522) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="570.0" y="3620" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | duplicate Found?</text>
+<rect x="760" y="3480" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(786,3506) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="810.0" y="3604" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">RESULT | Duplicate Skipped</text>
+<rect x="1208" y="616" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1234,642) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1258.0" y="740" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Clean Bokun Payload</text>
+<rect x="1656" y="616" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1682,642) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1706.0" y="740" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Normalize Time + Mark</text>
+<rect x="2536" y="1912" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2562,1938) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="2586.0" y="2036" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Find Block Markers</text>
+<rect x="2424" y="4216" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2450,4242) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="2474.0" y="4340" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">RESULT | Final Write Success</text>
+<rect x="328" y="3496" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(354,3522) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="378.0" y="3620" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Parse Pending + Check</text>
+<rect x="2328" y="3960" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2354,3986) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="2378.0" y="4084" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Edit Fields3</text>
+<rect x="2152" y="4184" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2178,4210) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="2202.0" y="4308" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Used Unmatched Fallback</text>
+<rect x="2520" y="3960" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2546,3986) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="2570.0" y="4084" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Aviso reserva en horarios no</text>
+<rect x="216" y="4120" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(242,4146) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="266.0" y="4244" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Build Dynamic Write P</text>
+<rect x="424" y="4120" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(450,4146) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="474.0" y="4244" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Resolve Sheet Id Stat</text>
+<rect x="648" y="4120" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(674,4146) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="698.0" y="4244" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">crear IF | Need Insert Rows?</text>
+<rect x="792" y="3928" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(818,3954) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="842.0" y="4052" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">HTTP | Insert Rows Before En</text>
+<rect x="1224" y="4040" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1250,4066) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1274.0" y="4164" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Rebuild Write Plan Af</text>
+<rect x="888" y="4184" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(914,4210) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="938.0" y="4308" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Pass Through No Inser</text>
+<rect x="1144" y="4264" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1170,4290) scale(2)" fill="none" stroke="#00BBCE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 21v-6M15 12l3 3-3 3"/></g>
+<text x="1194.0" y="4388" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Merge</text>
+<rect x="1544" y="4088" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1570,4114) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="1594.0" y="4212" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">HTTP | Write Pending Rows</text>
+<rect x="1752" y="4088" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1778,4114) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="1802.0" y="4212" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Need Trailing Clear?</text>
+<rect x="1960" y="3944" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1986,3970) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="2010.0" y="4068" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">HTTP | Clear Trailing Rows</text>
+<rect x="1976" y="4184" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2002,4210) scale(2)" fill="none" stroke="#00BBCE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 21v-6M15 12l3 3-3 3"/></g>
+<text x="2026.0" y="4308" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Merge1</text>
+<rect x="1336" y="4264" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1362,4290) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="1386.0" y="4388" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Can Write Rows?</text>
+<rect x="200" y="2888" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(226,2914) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="250.0" y="3012" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Parse Pending + Build</text>
+<rect x="456" y="2856" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(482,2882) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="506.0" y="2980" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Booking Found To Cancel</text>
+<rect x="600" y="2600" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(626,2626) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="650.0" y="2724" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">HTTP | Rewrite Cancelled Blo</text>
+<rect x="1112" y="2936" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1138,2962) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1162.0" y="3060" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">RESULT | Cancellation Not Fo</text>
+<rect x="776" y="2584" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(802,2610) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="826.0" y="2708" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Cancellation Rewrite Su</text>
+<rect x="984" y="2472" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1010,2498) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1034.0" y="2596" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Check Late Cancellati</text>
+<rect x="1192" y="2472" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1218,2498) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="1242.0" y="2596" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Late Cancellation &lt;24h?</text>
+<rect x="1448" y="2392" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1474,2418) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1498.0" y="2516" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">RESULT | Late Cancellation</text>
+<rect x="1448" y="2584" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1474,2610) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1498.0" y="2708" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">RESULT | Cancellation Succes</text>
+<rect x="1784" y="3144" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1810,3170) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="1834.0" y="3268" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Telegram | Cancellation Not </text>
+<rect x="2008" y="2936" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2034,2962) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="2058.0" y="3060" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Cancellation Rewrite Failed</text>
+<rect x="1800" y="2408" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1826,2434) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="1850.0" y="2532" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Late Cancellation</text>
+<rect x="1032" y="4040" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1058,4066) scale(2)" fill="none" stroke="#00BBCE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 21v-6M15 12l3 3-3 3"/></g>
+<text x="1082.0" y="4164" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Merge | Insert Response + Or</text>
+<rect x="1336" y="3480" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1362,3506) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="1386.0" y="3604" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Telegram | Duplicate Found</text>
+<rect x="1512" y="4856" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1538,4882) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1562.0" y="4980" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Edit Fields</text>
+<rect x="2008" y="2776" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2034,2802) scale(2)" fill="#0F9D58"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></g>
+<text x="2058.0" y="2900" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Bokun Control Center</text>
+<rect x="1800" y="2216" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1826,2242) scale(2)" fill="#0F9D58"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></g>
+<text x="1850.0" y="2340" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Bokun Control Center &lt; 24h</text>
+<rect x="1448" y="2776" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1474,2802) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1498.0" y="2900" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">RESULT | Cancellation Rewrit</text>
+<rect x="1144" y="3480" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1170,3506) scale(2)" fill="#0F9D58"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></g>
+<text x="1194.0" y="3604" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Bokun Control Centre</text>
+<rect x="1432" y="616" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1458,642) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1482.0" y="740" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Payload Base Fields</text>
+<rect x="1880" y="616" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1906,642) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1930.0" y="740" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Normalized Output Prev</text>
+<rect x="200" y="1704" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(226,1730) scale(2)" fill="#4285F4"><path d="M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"/></g>
+<text x="250.0" y="1828" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Search Daily File</text>
+<rect x="424" y="1704" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(450,1730) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="474.0" y="1828" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Build Daily File Matc</text>
+<rect x="648" y="1704" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(674,1730) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="698.0" y="1828" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Daily File Exists?</text>
+<rect x="872" y="1800" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(898,1826) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="922.0" y="1924" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Copy Daily Template</text>
+<rect x="1096" y="1608" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1122,1634) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1146.0" y="1732" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Daily File Found1</text>
+<rect x="1096" y="1800" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1122,1826) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1146.0" y="1924" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Daily File Created</text>
+<rect x="1320" y="1704" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1346,1730) scale(2)" fill="none" stroke="#00BBCE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 21v-6M15 12l3 3-3 3"/></g>
+<text x="1370.0" y="1828" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MERGE | Daily File Ready</text>
+<rect x="2184" y="1944" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2210,1970) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="2234.0" y="2068" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">HTTP | Read Daily Sheet</text>
+<rect x="2344" y="1928" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2370,1954) scale(2)" fill="none" stroke="#00BBCE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 21v-6M15 12l3 3-3 3"/></g>
+<text x="2394.0" y="2052" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MERGE | Sheet Read + Context</text>
+<rect x="312" y="1128" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(338,1154) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="362.0" y="1252" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Build Drive Paths</text>
+<rect x="824" y="1112" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(850,1138) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="874.0" y="1236" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Year Folder Exists?</text>
+<rect x="1160" y="1032" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1186,1058) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1210.0" y="1156" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Year Folder Found</text>
+<rect x="1272" y="1224" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1298,1250) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1322.0" y="1348" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Year Folder Created</text>
+<rect x="600" y="1128" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(626,1154) scale(2)" fill="#4285F4"><path d="M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"/></g>
+<text x="650.0" y="1252" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Search Year Folder</text>
+<rect x="1048" y="1224" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1074,1250) scale(2)" fill="#4285F4"><path d="M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"/></g>
+<text x="1098.0" y="1348" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Create Year Folder</text>
+<rect x="1512" y="1128" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1538,1154) scale(2)" fill="none" stroke="#00BBCE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 21v-6M15 12l3 3-3 3"/></g>
+<text x="1562.0" y="1252" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MERGE | Year Folder Ready</text>
+<rect x="1720" y="1128" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1746,1154) scale(2)" fill="#4285F4"><path d="M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"/></g>
+<text x="1770.0" y="1252" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Search Month Folder</text>
+<rect x="2168" y="1224" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2194,1250) scale(2)" fill="#4285F4"><path d="M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"/></g>
+<text x="2218.0" y="1348" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Create Month Folder</text>
+<rect x="1944" y="1128" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1970,1154) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="1994.0" y="1252" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Month Folder Exists?1</text>
+<rect x="2392" y="1032" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2418,1058) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="2442.0" y="1156" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Month Folder Found1</text>
+<rect x="2392" y="1224" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2418,1250) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="2442.0" y="1348" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MAP | Month Folder Created1</text>
+<rect x="2616" y="1128" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2642,1154) scale(2)" fill="none" stroke="#00BBCE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 21v-6M15 12l3 3-3 3"/></g>
+<text x="2666.0" y="1252" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">MERGE | Month Folder Ready1</text>
+<rect x="1704" y="4856" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1730,4882) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="1754.0" y="4980" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Create a row</text>
+<rect x="1944" y="3144" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1970,3170) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="1994.0" y="3268" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Create a row1</text>
+<rect x="2216" y="2936" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2242,2962) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="2266.0" y="3060" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Create a row2</text>
+<rect x="2008" y="2408" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2034,2434) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="2058.0" y="2532" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Create a row3</text>
+<rect x="1528" y="3480" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1554,3506) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="1578.0" y="3604" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Create a row4</text>
+<rect x="1528" y="2952" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1554,2978) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1578.0" y="3076" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Trim Cancellation Log</text>
+<rect x="1704" y="1592" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1730,1618) scale(2)" fill="none" stroke="#804050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="1754.0" y="1716" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Wait</text>
+<rect x="1736" y="2760" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1762,2786) scale(2)" fill="none" stroke="#804050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="1786.0" y="2884" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Wait2</text>
+<rect x="1736" y="2952" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1762,2978) scale(2)" fill="none" stroke="#804050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="1786.0" y="3076" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Wait3</text>
+<rect x="968" y="3480" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(994,3506) scale(2)" fill="none" stroke="#804050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="1018.0" y="3604" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Wait4</text>
+<rect x="2728" y="1768" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2754,1794) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="2778.0" y="1892" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Is Cancellation?</text>
+<path d="M1034,617 H1022 A37,49 0 0 0 985,666 A37,49 0 0 0 1022,715 H1076 A8,8 0 0 0 1083,708 V624 A8,8 0 0 0 1076,617 Z" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<path d="M1024,616 H992 a8,8 0 0 0 -8,8 V708 a8,8 0 0 0 8,8 H1024" fill="none"/><rect x="984" y="616" width="100" height="100" rx="8" fill="none"/><path d="M1084,616 " />
+<g transform="translate(1010,642) scale(2)" fill="none" stroke="#885577" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7a4 4 0 1 1 6 3.5L18 16M6 16a4 4 0 1 0 5 4h7M15 20a4 4 0 1 0-3-6.5L9 8"/></g>
+<text x="1034.0" y="740" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Webhook</text>
+<rect x="2008" y="2584" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2034,2610) scale(2)" fill="#0F9D58"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></g>
+<text x="2058.0" y="2708" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Bokun Control Center1</text>
+<rect x="264" y="3912" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(290,3938) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="314.0" y="4036" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Hubo auto-reparacion?</text>
+<rect x="536" y="3896" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(562,3922) scale(2)" fill="#0F9D58"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></g>
+<text x="586.0" y="4020" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOG | Duplicados auto-repara</text>
+<rect x="1816" y="4600" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1842,4626) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="1866.0" y="4724" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CALL | Index+Cleanup</text>
+<rect x="1800" y="2568" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1826,2594) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="1850.0" y="2692" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">SUPABASE | Cancelacion &lt;24h</text>
+<rect x="1912" y="1608" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1938,1634) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1962.0" y="1732" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOCK Prep</text>
+<rect x="2104" y="1608" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2130,1634) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="2154.0" y="1732" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOCK Acquire</text>
+<rect x="2296" y="1624" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2322,1650) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="2346.0" y="1748" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF LOCK Got?</text>
+<rect x="1928" y="1912" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1954,1938) scale(2)" fill="none" stroke="#804050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="1978.0" y="2036" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOCK Wait</text>
+<rect x="1656" y="3880" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1682,3906) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="1706.0" y="4004" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOCK Release Write</text>
+<rect x="1928" y="3480" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1954,3506) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="1978.0" y="3604" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOCK Release Dup</text>
+<rect x="600" y="2392" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(626,2418) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="650.0" y="2516" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOCK Release Cancel</text>
+<rect x="1112" y="3112" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1138,3138) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="1162.0" y="3236" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">LOCK Release CancelNF</text>
+<rect x="2552" y="1640" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2578,1666) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="2602.0" y="1764" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF LOCK Errored?</text>
+<rect x="2616" y="2584" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2642,2610) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="2666.0" y="2708" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CALL | Index Delete</text>
+<rect x="2040" y="4712" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2066,4738) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="2090.0" y="4836" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CALL | VERIFY Write</text>
+<rect x="2248" y="4712" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2274,4738) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="2298.0" y="4836" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Check Write</text>
+<rect x="2472" y="4712" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2498,4738) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="2522.0" y="4836" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">ALERTA | VERIFY Write</text>
+<rect x="2088" y="2168" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2114,2194) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="2138.0" y="2292" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CALL | VERIFY Cancel</text>
+<rect x="2344" y="2168" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2370,2194) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="2394.0" y="2292" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Check Cancel</text>
+<rect x="2568" y="2168" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2594,2194) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="2618.0" y="2292" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">ALERTA | VERIFY Cancel</text>
+<rect x="1336" y="3112" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1362,3138) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1386.0" y="3236" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Registro Reconc</text>
+<rect x="1560" y="3144" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1586,3170) scale(2)" fill="none" stroke="#7D3C98" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></g>
+<text x="1610.0" y="3268" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">DT | Registrar No Encontrada</text>
+<rect x="440" y="4328" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(466,4354) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="490.0" y="4452" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Es Modificacion</text>
+<rect x="664" y="4328" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(690,4354) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="714.0" y="4452" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Registro Mod</text>
+<rect x="888" y="4328" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(914,4354) scale(2)" fill="none" stroke="#7D3C98" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></g>
+<text x="938.0" y="4452" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">DT | Registrar Mod</text>
+<rect x="1880" y="888" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1906,914) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="1930.0" y="1012" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Sync Web: Es reserva nu</text>
+<rect x="2152" y="968" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(2178,994) scale(2)" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></g>
+<text x="2202.0" y="1092" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">SUPABASE | Insert Reservatio</text>
+<rect x="1096" y="408" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1122,434) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="1146.0" y="532" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Producto de otro provee</text>
+<rect x="1320" y="216" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1346,242) scale(2)" fill="none" stroke="#0000FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g>
+<text x="1370.0" y="340" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">RESULT | Proveedor Ajeno Ign</text>
+<rect x="1544" y="120" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1570,146) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="1594.0" y="244" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">Telegram | Proveedor Ajeno</text>
+<rect x="1544" y="280" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1570,306) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1594.0" y="404" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Registro Proveedor Aj</text>
+<rect x="1768" y="280" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1794,306) scale(2)" fill="none" stroke="#7D3C98" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></g>
+<text x="1818.0" y="404" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">DT | Registrar Proveedor Aje</text>
+<rect x="1468" y="876" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1494,902) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="1518.0" y="1000" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">WEB | Control Center: ingest</text>
+<rect x="1092" y="2020" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1118,2046) scale(2)" fill="none" stroke="#804050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="1142.0" y="2144" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">WAIT | Antes de recomprobar </text>
+<rect x="1312" y="2020" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1338,2046) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="1362.0" y="2144" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Recheck Daily File</text>
+<rect x="1532" y="2020" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1558,2046) scale(2)" fill="none" stroke="#FF6D5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></g>
+<text x="1582.0" y="2144" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">CODE | Recheck Daily File Re</text>
+<rect x="1752" y="2020" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1778,2046) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="1802.0" y="2144" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Copia ya existe?</text>
+<rect x="1972" y="2120" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(1998,2146) scale(2)" fill="none" stroke="#0004F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g>
+<text x="2022.0" y="2244" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">GDRIVE | Copy Daily Template</text>
+<rect x="644" y="1444" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(670,1470) scale(2)" fill="none" stroke="#408000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9v12M6 15c0-4 12-2 12-6M6 15l12 6"/></g>
+<text x="694.0" y="1568" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">IF | Día duplicado en Drive?</text>
+<rect x="864" y="1444" width="100" height="100" rx="8" fill="#2E2F34" stroke="#4E5059" stroke-width="2"/>
+<g transform="translate(890,1470) scale(2)" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g>
+<text x="914.0" y="1568" text-anchor="middle" font-size="14" font-weight="600" fill="#D7D8DD">ALERTA | Día duplicado</text>
+</svg>

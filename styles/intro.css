@@ -1,0 +1,51 @@
+/* Intro de la home: vídeo a pantalla completa que se puede saltar; al acabar, un círculo crece desde abajo y entra la web. */
+.intro { position: fixed; inset: 0; z-index: 9999; background: #fff; display: none; }
+html.intro-on .intro { display: block; }
+html.intro-on, html.intro-on body { overflow: hidden; }
+.intro__v { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #fff; }
+@media (max-aspect-ratio: 4/3) { .intro__v { object-fit: contain; } }
+
+.intro__ui { position: absolute; left: 0; right: 0; bottom: clamp(1.25rem, 4vh, 2.5rem); display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+.intro__time { font: 500 .8rem/1 'Geist Mono', ui-monospace, monospace; color: var(--ink, #0E0E0E); letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.intro__snd { position: relative; width: 64px; height: 64px; border: 0; border-radius: 50%; background: #0E0E0E; color: #fff; cursor: pointer; display: grid; place-items: center;
+  box-shadow: 0 14px 34px -12px rgba(10, 22, 51, .45); transition: transform .3s var(--ease, ease), background .3s; }
+.intro__snd:hover { transform: scale(1.06); background: #2F62E0; }
+.intro__snd svg.ring { position: absolute; inset: -5px; width: calc(100% + 10px); height: calc(100% + 10px); transform: rotate(-90deg); pointer-events: none; }
+.intro__snd .ring circle { fill: none; stroke-width: 2.5; }
+.intro__snd .ring .bg { stroke: rgba(14, 14, 14, .1); }
+.intro__snd .ring .fg { stroke: var(--accent, #5B8CFF); stroke-linecap: round; }
+.intro__snd .ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.intro__snd .x { display: none; }
+.intro__snd[aria-pressed="false"] .x { display: block; }
+.intro__snd[aria-pressed="false"] .w { display: none; }
+.intro__skip { margin-top: .2rem; border: 0; background: none; padding: .4rem .8rem; font: 500 .95rem/1 Geist, system-ui, sans-serif; color: var(--ink, #0E0E0E); cursor: pointer;
+  text-decoration: underline; text-underline-offset: .3em; text-decoration-color: rgba(14, 14, 14, .25); transition: text-decoration-color .3s, color .3s; }
+.intro__skip:hover { color: #2F62E0; text-decoration-color: currentColor; }
+.intro__ui > * { opacity: 0; transform: translateY(14px); transition: opacity .6s var(--ease, ease), transform .6s var(--ease, ease); }
+.intro.is-ready .intro__ui > * { opacity: 1; transform: none; }
+.intro.is-ready .intro__ui > :nth-child(2) { transition-delay: .08s; }
+.intro.is-ready .intro__ui > :nth-child(3) { transition-delay: .16s; }
+
+/* salida: círculo azul desde abajo → se retira hacia arriba descubriendo la web */
+.intro__circle { position: absolute; left: 50%; top: 100%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #2F62E0; transform: scale(0); pointer-events: none; }
+.intro.is-out .intro__ui > * { opacity: 0; transform: translateY(14px); transition-delay: 0s; }
+.intro.is-out .intro__circle { transform: scale(var(--k, 400)); transition: transform .9s cubic-bezier(.7, 0, .2, 1); }
+.intro.is-gone { background: transparent; transform: translateY(-100%); transition: transform .85s cubic-bezier(.7, 0, .2, 1); }
+.intro.is-gone .intro__v { opacity: 0; }
+
+/* entrada de la web después de la intro */
+html.intro-on .hero-content, html.intro-on .hero-image { animation: none; opacity: 0; }
+html.intro-on #nav { opacity: 0; transform: translateY(-20px); }
+html.intro-enter .hero-content h1 { animation: introUp 1s var(--ease, ease) .25s both; }
+html.intro-enter .hero-content p { animation: introUp 1s var(--ease, ease) .4s both; }
+html.intro-enter .hero-content { animation: none; opacity: 1; }
+html.intro-enter .hero-image { animation: introImg 1.3s var(--ease, ease) .15s both; }
+html.intro-enter #nav { animation: introNav .9s var(--ease, ease) .5s both; }
+@keyframes introUp { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: none; } }
+@keyframes introImg { from { opacity: 0; transform: translateY(80px) scale(.94); } to { opacity: .9; transform: none; } }
+@keyframes introNav { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro.is-out .intro__circle, .intro.is-gone { transition-duration: .01s; }
+  html.intro-enter .hero-content h1, html.intro-enter .hero-content p, html.intro-enter .hero-image, html.intro-enter #nav { animation-duration: .01s; animation-delay: 0s; }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedir auditoría — Aldia</title>
+  <meta name="description" content="Cuéntanos cómo trabaja tu empresa en dos minutos y reserva una llamada. Te decimos qué automatizar primero y cuánto te ahorra.">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/aldia.css?v=20261118p">
+  <link rel="stylesheet" href="./styles/chat.css?v=20261118p">
+</head>
+<body data-page="auditoria">
+
+  <section class="phero" style="padding-bottom:2rem">
+    <div class="wrap">
+      <span class="eyebrow reveal">Auditoría gratuita</span>
+      <h1 class="display reveal d1">Dos minutos para saber cuánto puedes automatizar.</h1>
+    </div>
+  </section>
+
+  <section style="padding-bottom: var(--section)">
+    <div class="wrap audit">
+      <aside class="audit__aside reveal">
+        <p class="lead">Cuatro preguntas rápidas, reservas una llamada de 45 minutos y te enviamos un plan con números.</p>
+        <ol class="timeline">
+          <li><span>1</span><div><b>Formulario</b><p>Tus datos, tu empresa y qué os quita tiempo.</p></div></li>
+          <li><span>2</span><div><b>Llamada</b><p>Revisamos tus procesos contigo, sin compromiso.</p></div></li>
+          <li><span>3</span><div><b>Plan</b><p>Qué automatizar primero, precio y horas que te devuelve.</p></div></li>
+        </ol>
+        <div class="panel panel--surface">
+          <p class="muted" style="font-size:.9rem">¿Prefieres escribirnos primero? Pregunta al asistente de la esquina o entra en <a href="#" data-discord style="color:var(--accent-ink)">Aldia Community</a>.</p>
+        </div>
+      </aside>
+
+      <div class="audit__card reveal d1">
+        <form id="audit" novalidate>
+          <div class="progress" aria-hidden="true"><i class="is-done"></i><i></i><i></i><i></i></div>
+
+          <!-- Paso 1 -->
+          <div class="wstep is-active" data-step="1">
+            <div class="wstep__head"><small>PASO 1 DE 4</small><h2 class="h3">¿Con quién hablamos?</h2></div>
+            <div class="field"><label for="nombre">Tu nombre</label><input class="input" id="nombre" name="nombre" required autocomplete="name"></div>
+            <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required autocomplete="email" placeholder="tu@empresa.com"></div>
+            <div class="form-row">
+              <div class="field"><label for="telefono">Teléfono <small>(opcional)</small></label><input class="input" id="telefono" name="telefono" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="cargo">Cargo <small>(opcional)</small></label><input class="input" id="cargo" name="cargo" autocomplete="organization-title"></div>
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="wstep" data-step="2">
+            <div class="wstep__head"><small>PASO 2 DE 4</small><h2 class="h3">Tu empresa</h2></div>
+            <div class="field"><label for="empresa">Nombre de la empresa</label><input class="input" id="empresa" name="empresa" required autocomplete="organization"></div>
+            <div class="field"><label for="web">Web <small>(opcional)</small></label><input class="input" id="web" name="web" placeholder="tuempresa.com" autocomplete="url"></div>
+            <div class="field">
+              <label>Personas en el equipo</label>
+              <div class="options" style="grid-template-columns:repeat(4,1fr)">
+                <label class="option"><input type="radio" name="equipo" value="1-5" required><span>1–5</span></label>
+                <label class="option"><input type="radio" name="equipo" value="6-20"><span>6–20</span></label>
+                <label class="option"><input type="radio" name="equipo" value="21-50"><span>21–50</span></label>
+                <label class="option"><input type="radio" name="equipo" value="+50"><span>+50</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="wstep" data-step="3">
+            <div class="wstep__head"><small>PASO 3 DE 4</small><h2 class="h3">¿A qué os dedicáis?</h2></div>
+            <div class="options" style="grid-template-columns:1fr 1fr">
+              <label class="option"><input type="radio" name="sector" value="Turismo y ocio" required><span>Turismo y ocio</span></label>
+              <label class="option"><input type="radio" name="sector" value="Hostelería"><span>Hostelería</span></label>
+              <label class="option"><input type="radio" name="sector" value="Despacho profesional"><span>Despacho profesional</span></label>
+              <label class="option"><input type="radio" name="sector" value="Comercio / e-commerce"><span>Comercio / e-commerce</span></label>
+              <label class="option"><input type="radio" name="sector" value="Industria y logística"><span>Industria y logística</span></label>
+              <label class="option"><input type="radio" name="sector" value="Otro"><span>Otro</span></label>
+            </div>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="wstep" data-step="4">
+            <div class="wstep__head"><small>PASO 4 DE 4</small><h2 class="h3">¿Qué os quita más tiempo?</h2></div>
+            <div class="options" style="grid-template-columns:1fr 1fr">
+              <label class="option"><input type="checkbox" name="dolor" value="Pasar datos de un sitio a otro"><span>Pasar datos de un sitio a otro</span></label>
+              <label class="option"><input type="checkbox" name="dolor" value="Gestionar reservas o pedidos"><span>Reservas o pedidos</span></label>
+              <label class="option"><input type="checkbox" name="dolor" value="Responder siempre lo mismo a clientes"><span>Responder lo mismo</span></label>
+              <label class="option"><input type="checkbox" name="dolor" value="Informes y cuadres manuales"><span>Informes y cuadres</span></label>
+            </div>
+            <div class="field"><label for="detalle">Cuéntanos más <small>(opcional)</small></label><textarea class="textarea" id="detalle" name="detalle" rows="2" style="min-height:76px" placeholder="Ej.: cada mes pasamos dos días tecleando facturas y llamando a quien no ha pagado…"></textarea></div>
+            <label class="muted" style="display:flex;gap:.6rem;font-size:.85rem;align-items:flex-start">
+              <input type="checkbox" id="rgpd" required style="margin-top:4px;accent-color:var(--accent)">
+              <span>Acepto la <a href="privacidad.html" style="color:var(--accent-ink)">política de privacidad</a> y que Aldia me contacte sobre esta auditoría.</span>
+            </label>
+          </div>
+
+          <div class="wnav">
+            <button type="button" class="btn--ghost" id="prev" hidden>← Atrás</button>
+            <span></span>
+            <button type="submit" class="btn btn--dark" id="next">Siguiente</button>
+          </div>
+        </form>
+
+        <!-- Hecho: reservar llamada -->
+        <div id="booked" hidden>
+          <div class="done" style="margin-bottom:1.5rem">
+            <span class="done__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <h2 class="h3">Recibido. Ahora elige hora para la llamada.</h2>
+            <p class="muted">Ya tenemos tus respuestas; en la llamada vamos directos a lo importante.</p>
+          </div>
+          <div class="calendly-box" id="calendly"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./scripts/layout.js?v=20261118u"></script>
+  <script>
+    (function () {
+      const WEBHOOK = 'https://n8n.srv1623151.hstgr.cloud/webhook/aldia-web-leads';
+      const CONTACTO = 'https://aldiasmart.pages.dev/api/contacto';   // Smart Connect › Mensajes web
+      const CALENDLY = 'https://calendly.com/aldiasoftware/45min';
+      const form = document.getElementById('audit');
+      const steps = [...form.querySelectorAll('.wstep')];
+      const bars = [...form.querySelectorAll('.progress i')];
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      let i = 0;
+
+      const show = n => {
+        steps.forEach((s, k) => s.classList.toggle('is-active', k === n));
+        bars.forEach((b, k) => b.classList.toggle('is-done', k <= n));
+        prev.hidden = n === 0;
+        next.textContent = n === steps.length - 1 ? 'Enviar y reservar llamada' : 'Siguiente';
+        i = n;
+      };
+
+      const valid = n => {
+        let ok = true;
+        steps[n].querySelectorAll('[required]').forEach(el => {
+          const bad = el.type === 'radio'
+            ? !form.querySelector(`input[name="${el.name}"]:checked`)
+            : el.type === 'checkbox' ? !el.checked : !el.checkValidity();
+          if (el.classList.contains('input')) el.classList.toggle('is-error', bad);
+          if (bad) ok = false;
+        });
+        if (!ok) { next.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 }); }
+        return ok;
+      };
+
+      prev.addEventListener('click', () => show(i - 1));
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        if (!valid(i)) return;
+        if (i < steps.length - 1) return show(i + 1);
+
+        const fd = new FormData(form);
+        const data = {
+          origen: 'Auditoría web',
+          fecha: new Date().toLocaleString('es-ES'),
+          empresa: fd.get('empresa'), web: fd.get('web'), sector: fd.get('sector'), equipo: fd.get('equipo'),
+          dolores: fd.getAll('dolor'), detalle: fd.get('detalle'),
+          nombre: fd.get('nombre'), cargo: fd.get('cargo'), email: fd.get('email'), telefono: fd.get('telefono')
+        };
+        // Compatibilidad con el flujo actual (campo "mensaje")
+        data.mensaje = `Auditoría · ${data.empresa} (${data.sector}, ${data.equipo} pers.)\nLe quita tiempo: ${data.dolores.join(', ') || '—'}\n${data.detalle || ''}`;
+
+        next.disabled = true; next.textContent = 'Enviando…';
+        try {
+          const ctrl = new AbortController(); setTimeout(() => ctrl.abort(), 8000);
+          const body = JSON.stringify(data);
+          await Promise.all([CONTACTO, WEBHOOK].map(url => fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, signal: ctrl.signal }).catch(err => console.warn('Envío auditoría:', url, err))));
+        } catch (err) { console.warn('Webhook auditoría:', err); }
+
+        form.hidden = true;
+        document.getElementById('booked').hidden = false;
+        const q = new URLSearchParams({ hide_landing_page_details: 1, hide_gdpr_banner: 1, name: data.nombre, email: data.email, a1: data.empresa });
+        document.getElementById('calendly').innerHTML = `<iframe src="${CALENDLY}?${q}" title="Reservar llamada" style="width:100%;height:680px;border:0"></iframe>`;
+        window.scrollTo({ top: document.getElementById('booked').getBoundingClientRect().top + scrollY - 110, behavior: 'smooth' });
+      });
+
+      show(0);
+    })();
+  </script>
+  <script src="./scripts/chat.js?v=20261118p"></script>
+</body>
+</html>

@@ -1,186 +1,68 @@
-/* Aldia Premium Chat Interface */
-#aldia-chat-trigger {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
-  background: #000;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  z-index: 99999;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* ALDIA — Asistente */
+#ac-trigger {
+  position: fixed; right: 20px; bottom: 20px; z-index: 1000;
+  display: inline-flex; align-items: center; gap: .55rem; height: 52px; padding: 0 1.2rem 0 1rem;
+  border: 0; border-radius: 999px; background: #0E0E0E; color: #fff; cursor: pointer;
+  font: 500 .95rem 'Geist', 'Inter', system-ui, sans-serif;
+  box-shadow: 0 10px 30px rgba(14,14,14,.22);
+  transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .3s;
 }
+#ac-trigger svg { width: 20px; height: 20px; }
+#ac-trigger:hover { transform: translateY(-2px); }
+#ac-trigger.is-hidden { opacity: 0; pointer-events: none; transform: scale(.9); }
 
-#aldia-chat-trigger:hover {
-  transform: scale(1.1) translateY(-5px);
-  background: #111;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+#ac-win {
+  position: fixed; right: 20px; bottom: 20px; z-index: 1001;
+  width: 380px; height: min(620px, calc(100vh - 40px));
+  display: flex; flex-direction: column; overflow: hidden;
+  background: #fff; border: 1px solid #E8E9EC; border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(14,14,14,.04), 0 30px 80px rgba(14,14,14,.16);
+  font-family: 'Geist', 'Inter', system-ui, sans-serif; color: #0E0E0E;
+  opacity: 0; transform: translateY(16px) scale(.98); transform-origin: bottom right; pointer-events: none;
+  transition: opacity .3s, transform .45s cubic-bezier(.16,1,.3,1);
 }
+#ac-win.is-open { opacity: 1; transform: none; pointer-events: auto; }
 
-#aldia-chat-window {
-  position: fixed;
-  bottom: 6.5rem;
-  right: 2rem;
-  width: 380px;
-  height: 550px;
-  background: #ffffff;
-  border-radius: 28px;
-  box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 99998;
-  border: 1px solid #000000;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.ac-head { display: flex; align-items: center; gap: .7rem; padding: 14px 14px 14px 16px; border-bottom: 1px solid #E8E9EC; }
+.ac-head img { width: 36px; height: 36px; }
+.ac-head div { flex: 1; display: grid; line-height: 1.25; }
+.ac-head b { font-size: .95rem; font-weight: 600; }
+.ac-head small { font-size: .78rem; color: #6B6F76; display: flex; align-items: center; gap: 6px; }
+.ac-head small i { width: 7px; height: 7px; border-radius: 50%; background: #19A974; }
+.ac-icon { width: 34px; height: 34px; border-radius: 50%; border: 0; background: transparent; color: #6B6F76; display: grid; place-items: center; cursor: pointer; }
+.ac-icon:hover { background: #F7F8FA; color: #0E0E0E; }
+.ac-icon svg { width: 17px; height: 17px; }
+
+.ac-msgs { flex: 1; overflow-y: auto; padding: 18px 16px 8px; display: flex; flex-direction: column; gap: 8px; scroll-behavior: smooth; }
+.ac-msg { max-width: 86%; padding: .7rem .95rem; border-radius: 18px; font-size: .93rem; line-height: 1.5; animation: acIn .35s cubic-bezier(.16,1,.3,1); word-wrap: break-word; white-space: pre-line; }
+.ac-bot { align-self: flex-start; background: #F7F8FA; border-bottom-left-radius: 6px; }
+.ac-user { align-self: flex-end; background: #0E0E0E; color: #fff; border-bottom-right-radius: 6px; }
+.ac-msg b { font-weight: 600; }
+@keyframes acIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.ac-typing { display: inline-flex; gap: 4px; padding: .9rem 1rem; }
+.ac-typing span { width: 6px; height: 6px; border-radius: 50%; background: #9A9EA6; animation: acDot 1.2s infinite; }
+.ac-typing span:nth-child(2) { animation-delay: .15s; } .ac-typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes acDot { 0%, 60%, 100% { opacity: .3; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+
+.ac-quick { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 16px 10px; justify-content: flex-end; }
+.ac-quick:empty { display: none; }
+.ac-chip {
+  display: inline-flex; align-items: center; height: 34px; padding: 0 .9rem; border-radius: 999px;
+  border: 1px solid #D5E2FF; background: #fff; color: #2F62E0; font: 500 .85rem inherit; font-family: inherit;
+  cursor: pointer; text-decoration: none; transition: background .2s, border-color .2s;
 }
+.ac-chip:hover { background: #EEF3FF; }
+.ac-chip.is-primary { background: #5B8CFF; border-color: #5B8CFF; color: #fff; }
+.ac-chip.is-primary:hover { background: #2F62E0; }
 
-#aldia-chat-window.active {
-  display: flex;
-}
+.ac-input { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #E8E9EC; }
+.ac-input input { flex: 1; height: 44px; padding: 0 1rem; border: 1px solid #D6D8DD; border-radius: 999px; font: inherit; font-size: .93rem; outline: none; transition: border-color .2s, box-shadow .2s; }
+.ac-input input:focus { border-color: #5B8CFF; box-shadow: 0 0 0 4px #EEF3FF; }
+.ac-input button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: #0E0E0E; color: #fff; display: grid; place-items: center; cursor: pointer; flex: none; }
+.ac-input button svg { width: 18px; height: 18px; }
 
-.chat-header {
-  background: #000;
-  padding: 1.2rem 1.5rem;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  background: #00ff88;
-  border-radius: 50%;
-}
-
-.header-info { display: flex; align-items: center; gap: 12px; }
-.header-info h4 { margin: 0; font-size: 0.95rem; font-weight: 700; }
-.header-info p { margin: 0; font-size: 0.72rem; opacity: 0.5; }
-
-#close-chat { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; opacity: 0.6; transition: 0.3s; }
-#close-chat:hover { opacity: 1; }
-
-#chat-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  background: #fcfcfc;
-  scroll-behavior: smooth;
-}
-
-.msg {
-  max-width: 82%;
-  padding: 0.9rem 1.1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  animation: msgPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes msgPop {
-  from { opacity: 0; transform: translateY(10px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.msg.bot {
-  align-self: flex-start;
-  background: white;
-  color: #333;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-  border: 1px solid rgba(0,0,0,0.02);
-}
-
-.msg.user {
-  align-self: flex-end;
-  background: #000;
-  color: white;
-  border-bottom-right-radius: 4px;
-}
-
-.chat-input-area {
-  padding: 1.2rem;
-  background: white;
-  border-top: 1px solid #f0f0f0;
-  display: flex;
-  gap: 12px;
-}
-
-#chat-input {
-  flex: 1;
-  border: none;
-  background: #f5f5f5;
-  padding: 0.75rem 1.2rem;
-  border-radius: 100px;
-  font-size: 0.9rem;
-  outline: none;
-  color: #000;
-}
-
-#chat-input::placeholder {
-  color: #aaa;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-}
-
-#send-msg {
-  width: 48px;
-  height: 48px;
-  background: #000;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#send-msg:hover { transform: scale(1.08); background: #222; }
-#send-msg svg { width: 10px; height: 10px; }
-
-.typing span {
-  width: 5px;
-  height: 5px;
-  background: #999;
-  display: inline-block;
-  border-radius: 50%;
-  margin: 0 2px;
-  animation: typing 1.4s infinite ease-in-out;
-}
-.typing span:nth-child(2) { animation-delay: 0.2s; }
-.typing span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes typing {
-  0%, 80%, 100% { transform: scale(0); }
-  40% { transform: scale(1); }
-}
-
-@media (max-width: 768px) {
-  #aldia-chat-window {
-    width: calc(100vw - 2rem);
-    height: 60vh;
-    right: 1rem;
-    bottom: 5.5rem;
-  }
-  #aldia-chat-trigger {
-    bottom: 1.5rem;
-    right: 1.5rem;
-  }
+@media (max-width: 520px) {
+  #ac-trigger span { display: none; }
+  #ac-trigger { width: 52px; padding: 0; justify-content: center; right: 16px; bottom: 16px; }
+  #ac-win { right: 0; bottom: 0; width: 100%; height: 100dvh; border-radius: 0; border: 0; }
 }
