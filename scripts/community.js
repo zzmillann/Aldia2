@@ -94,7 +94,7 @@
         ag.querySelector('[data-ag-in]').textContent = `en ${h ? h + ' h ' : ''}${mm} min${off === 1 ? ' · mañana' : off > 1 ? ' · el ' + DAYS[d] : ''}`;
         const ds = off * 86400 + e.h * 3600 - secs, cd = ag.querySelector('[data-ag-cd]');
         if (cd) { cd.querySelector('[data-cd="h"]').textContent = pad(Math.floor(ds / 3600)); cd.querySelector('[data-cd="m"]').textContent = pad(Math.floor(ds % 3600 / 60)); const sb = cd.querySelector('[data-cd="s"]'), sv = pad(ds % 60); if (sb.textContent !== sv) { sb.textContent = sv; sb.classList.remove('tk'); void sb.offsetWidth; sb.classList.add('tk'); } }
-        const w = ag.querySelector('[data-ag-when]'); if (w) w.textContent = `${off === 0 ? 'hoy' : off === 1 ? 'mañana' : 'el ' + DAYS[d]} a las ${pad(e.h)}:00 · hora de Madrid`;
+        const w = ag.querySelector('[data-ag-when]'); if (w) w.textContent = `${off === 0 ? "Hoy" : off === 1 ? "Mañana" : "El " + DAYS[d]}, a las ${pad(e.h)}:00 (hora de Madrid)`;
         ag.querySelectorAll('.pub__it').forEach(it => it.classList.toggle('is-next', it.dataset.ev === e.c));
         break;
       }

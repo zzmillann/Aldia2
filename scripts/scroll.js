@@ -1,4 +1,5 @@
-/* ALDIA — «Lo que construimos»: escena fija que avanza con el scroll */
+/* ALDIA — «Lo que construimos»: se elige un ejemplo pulsándolo y, al acabar su vídeo, pasa solo al siguiente
+   (después del último vuelve al primero). La barra lateral marca por dónde va la serie. */
 (function () {
   const sc = document.querySelector('[data-sc]'); if (!sc) return;
   const items = [...sc.querySelectorAll('.sc__it')], media = [...sc.querySelectorAll('.sc__m')];
@@ -6,43 +7,59 @@
   const bar = sc.querySelector('[data-sc-bar]');
   const N = items.length;
   const mobile = () => matchMedia('(max-width: 900px)').matches;
-  let cur = -1, onScreen = false;
+  let cur = -1, onScreen = false, raf;
 
   const load = v => {
     if (!v || v.dataset.loaded) return;
     const big = Math.max(screen.width, screen.height) * (devicePixelRatio || 1) >= 2560;
     v.src = (big && v.dataset.src4k) || v.dataset.srcHd; v.dataset.loaded = 1;
   };
+  const play = v => { if (v && onScreen && !mobile()) v.play().catch(() => {}); };
+
   const activate = i => {
     if (i === cur) return; cur = i;
     items.forEach((it, k) => it.classList.toggle('is-on', k === i));
-    media.forEach((m, k) => m.classList.toggle('is-on', k === i));
+    media.forEach((m, k) => {
+      m.classList.toggle('is-on', k === i);
+      // el que entra se endereza; los demás esperan arriba o abajo con una leve perspectiva
+      const d = k === i ? 0 : (k < i ? -1 : 1);
+      m.style.transform = d ? `perspective(1600px) translateY(${d * 60}px) rotateX(${d * 10}deg) scale(.94)` : 'none';
+    });
     vids.forEach((v, k) => {
-      if (k === i) { load(v); try { v.currentTime = 0; } catch (e) {} if (onScreen) v.play().catch(() => {}); }
+      if (k === i) { load(v); try { v.currentTime = 0; } catch (e) {} play(v); }
       else v.pause();
     });
     load(vids[(i + 1) % N]);
   };
 
-  const onScroll = () => {
-    if (mobile()) return;
-    const r = sc.getBoundingClientRect(), total = sc.offsetHeight - innerHeight;
-    const p = Math.min(1, Math.max(0, -r.top / total));
-    onScreen = r.top < innerHeight && r.bottom > 0;
-    const f = p * N, i = Math.min(N - 1, Math.floor(f)), sub = f - i;
-    activate(i);
-    bar.style.transform = `scaleY(${p})`;
-    // entrada de cada ejemplo: se endereza desde una leve perspectiva
-    media.forEach((m, k) => {
-      const d = k - f + .5;                    // 0 = centrado en su tramo
-      const rot = Math.max(-10, Math.min(10, d * 10));
-      const y = Math.max(-60, Math.min(60, d * 60));
-      m.style.transform = `perspective(1600px) translateY(${y}px) rotateX(${rot}deg) scale(${k === i ? 1 : .94})`;
-    });
-    if (!onScreen) vids.forEach(v => v.pause()); else if (vids[cur] && vids[cur].paused && vids[cur].dataset.loaded) vids[cur].play().catch(() => {});
+  // barra: avance de la serie completa (ejemplo actual + lo que lleva su vídeo)
+  const tick = () => {
+    const v = vids[cur], f = v && v.duration ? Math.min(1, v.currentTime / v.duration) : 0;
+    bar.style.transform = `scaleY(${((cur + f) / N).toFixed(4)})`;
+    raf = requestAnimationFrame(tick);
   };
 
-  // móvil: cada ejemplo se reproduce al verse
+  vids.forEach((v, k) => {
+    if (!v) return;
+    v.addEventListener('ended', () => { if (!mobile() && k === cur) activate((cur + 1) % N); });
+  });
+  const setLoop = () => vids.forEach(v => { if (v) v.loop = mobile(); });   // en escritorio no se repite: avanza
+
+  items.forEach((it, k) => it.addEventListener('click', e => {
+    if (e.target.closest('a') || mobile()) return;
+    if (k === cur) { const v = vids[k]; try { v.currentTime = 0; } catch (er) {} play(v); return; }
+    activate(k);
+  }));
+
+  // sólo se reproduce cuando la sección está a la vista
+  new IntersectionObserver(([e]) => {
+    onScreen = e.isIntersecting;
+    if (mobile()) return;
+    if (onScreen) { play(vids[cur]); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
+    else { vids.forEach(v => v && v.pause()); cancelAnimationFrame(raf); }
+  }, { threshold: .35 }).observe(sc);
+
+  // móvil: cada ejemplo se reproduce al verse, en bucle
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (!mobile()) return;
     const v = e.target.querySelector('video');
@@ -50,11 +67,6 @@
   }), { threshold: .5 });
   media.forEach(m => io.observe(m));
 
-  items.forEach((it, k) => it.addEventListener('click', e => {
-    if (e.target.closest('a') || mobile()) return;
-    const total = sc.offsetHeight - innerHeight;
-    scrollTo({ top: sc.offsetTop + total * (k + .5) / N, behavior: 'smooth' });
-  }));
-  addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll);
-  activate(0); onScroll();
+  addEventListener('resize', setLoop);
+  setLoop(); activate(0);
 })();

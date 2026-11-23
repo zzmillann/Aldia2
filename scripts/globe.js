@@ -96,6 +96,11 @@
   }
 
   // ─── RENDER LOOP ─────────────────────────────────────────
+  // color: una ola de azul y violeta recorre la esfera; los puntos de atrás se aclaran y el cursor los enciende
+  var INK = [16, 20, 34], BLUE = [47, 98, 224], SKY = [91, 140, 255], VIO = [139, 124, 255];
+  var col_arr = new Array(N), t0 = performance.now();
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mix(a, b, k) { return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k]; }
   var sx_arr = new Float32Array(N);
   var sy_arr = new Float32Array(N);
   var rs_arr = new Float32Array(N);
@@ -109,6 +114,10 @@
     ctx.fillStyle = CONFIG.bgColor;
     ctx.fillRect(0, 0, W, H);
 
+    // halo azul suave detrás de la esfera
+    var hg = ctx.createRadialGradient(cx, cy - R * 0.35, R * 0.1, cx, cy - R * 0.2, R * 1.25);
+    hg.addColorStop(0, 'rgba(91,140,255,0.16)'); hg.addColorStop(0.55, 'rgba(139,124,255,0.07)'); hg.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = hg; ctx.fillRect(0, 0, W, H);
     rotY += CONFIG.rotSpeed;
 
     var mdx = mouseX - cx;
@@ -154,6 +163,17 @@
       var baseSize = dot.size * R * 0.0035;
       rs_arr[i] = Math.max(0.3, baseSize * ps);
       depthCache[i] = z3;
+      var tt = reduce ? 0 : (performance.now() - t0) / 1000;
+      var w = 0.5 + 0.5 * Math.sin(theta * 1.3 + y3 * 2.2 - tt * 0.9);
+      w = Math.pow(w, 1.15);
+      var v = 0.5 + 0.5 * Math.sin(dot.phi * 3.1 + tt * 0.55);
+      var c = mix(INK, mix(BLUE, VIO, v), w);
+      if (cursorInSphere) {
+        var ddx = sx0 - mouseX, ddy = sy0 - mouseY, dd = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (dd < repR * 1.8) c = mix(c, SKY, (1 - dd / (repR * 1.8)) * 0.9);
+      }
+      var a = 0.35 + 0.65 * (1 - (z3 + 1) / 2);
+      col_arr[i] = 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + a.toFixed(2) + ')';
     }
 
     indices.sort(function (a, b) {
@@ -170,7 +190,7 @@
       var rs = rs_arr[idx];
       ctx.beginPath();
       ctx.arc(sx, sy, rs, 0, 6.283185307);
-      ctx.fillStyle = 'rgba(' + dr + ',' + dg + ',' + db + ',1)';
+      ctx.fillStyle = col_arr[idx];
       ctx.fill();
     }
 

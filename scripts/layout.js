@@ -49,7 +49,7 @@
         ${LINKS.map(l => l.key === 'servicios'
           ? `<li class="has-drop"><a href="${l.href}" class="${l.key === page ? 'is-active' : ''}">${l.label}<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
                <div class="drop"><div class="drop__grid">${SERVICES.map(card).join('')}</div></div></li>`
-          : `<li><a href="${l.href}" class="${l.key === page ? 'is-active' : ''}">${l.label}</a></li>`).join('')}
+          : `<li><a href="${l.href}" class="${l.key === page ? 'is-active' : ''}${l.key === 'comunidad' ? ' nav-dc' : ''}">${l.key === 'comunidad' ? `<span class="nav-dc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS.discord}</svg></span>` : ''}${l.label}</a></li>`).join('')}
       </ul>
       <div class="nav__cta">
         <a href="${DISCORD}" target="_blank" rel="noopener" class="btn btn--line btn--sm">Únete a la comunidad</a>
@@ -220,3 +220,10 @@
   // Reabrir desde cualquier enlace con data-cookies (p. ej. en la página de cookies)
   document.querySelectorAll('[data-cookies]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ck.classList.add('is-on', 'is-open'); }));
 })();
+
+// Community en el menú: al pulsar, el logo de Discord entra con un giro y luego se navega
+document.addEventListener('click', (e) => {
+  const a = e.target.closest && e.target.closest('a.nav-dc'); if (!a || a.classList.contains('is-active') || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  e.preventDefault(); a.classList.add('is-going'); setTimeout(() => { location.href = a.href; }, 650);
+});
