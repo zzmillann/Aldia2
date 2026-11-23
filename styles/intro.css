@@ -7,17 +7,18 @@ html.intro-on, html.intro-on body { overflow: hidden; }
 
 .intro__ui { position: absolute; left: 0; right: 0; bottom: clamp(1.25rem, 4vh, 2.5rem); display: flex; flex-direction: column; align-items: center; gap: .6rem; }
 .intro__time { font: 500 .8rem/1 'Geist Mono', ui-monospace, monospace; color: var(--ink, #0E0E0E); letter-spacing: .04em; font-variant-numeric: tabular-nums; }
-.intro__snd { position: relative; width: 64px; height: 64px; border: 0; border-radius: 50%; background: #0E0E0E; color: #fff; cursor: pointer; display: grid; place-items: center;
-  box-shadow: 0 14px 34px -12px rgba(10, 22, 51, .45); transition: transform .3s var(--ease, ease), background .3s; }
-.intro__snd:hover { transform: scale(1.06); background: #2F62E0; }
-.intro__snd svg.ring { position: absolute; inset: -5px; width: calc(100% + 10px); height: calc(100% + 10px); transform: rotate(-90deg); pointer-events: none; }
-.intro__snd .ring circle { fill: none; stroke-width: 2.5; }
-.intro__snd .ring .bg { stroke: rgba(14, 14, 14, .1); }
-.intro__snd .ring .fg { stroke: var(--accent, #5B8CFF); stroke-linecap: round; }
-.intro__snd .ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.intro__snd .x { display: none; }
-.intro__snd[aria-pressed="false"] .x { display: block; }
-.intro__snd[aria-pressed="false"] .w { display: none; }
+/* botón de sonido con anillo de progreso: el anillo va separado del botón (hueco de ~6px) para que se lea */
+.intro__snd { position: relative; width: 56px; height: 56px; margin: 10px; border: 0; border-radius: 50%; background: #0E0E0E; color: #fff; cursor: pointer; display: grid; place-items: center;
+  box-shadow: 0 12px 28px -12px rgba(10, 22, 51, .5); transition: background .3s, box-shadow .3s; -webkit-tap-highlight-color: transparent; }
+.intro__snd:hover { background: #2F62E0; box-shadow: 0 14px 32px -12px rgba(47, 98, 224, .6); }
+.intro__snd:focus { outline: none; }
+.intro__snd:focus-visible { box-shadow: 0 0 0 3px #fff, 0 0 0 5px #2F62E0; }
+.intro__snd svg.ring { position: absolute; inset: -10px; width: calc(100% + 20px); height: calc(100% + 20px); max-width: none; transform: rotate(-90deg); pointer-events: none; overflow: visible; }
+.intro__snd .ring circle { fill: none; stroke-width: 3; }
+.intro__snd .ring .bg { stroke: rgba(14, 14, 14, .12); }
+.intro__snd .ring .fg { stroke: #2F62E0; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; transition: opacity .3s; }
+.intro__snd .ring .fg.on { opacity: 1; }
+.intro__snd .ico { width: 22px; height: 22px; margin-left: 2px; fill: currentColor; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
 .intro__skip { margin-top: .2rem; border: 0; background: none; padding: .4rem .8rem; font: 500 .95rem/1 Geist, system-ui, sans-serif; color: var(--ink, #0E0E0E); cursor: pointer;
   text-decoration: underline; text-underline-offset: .3em; text-decoration-color: rgba(14, 14, 14, .25); transition: text-decoration-color .3s, color .3s; }
 .intro__skip:hover { color: #2F62E0; text-decoration-color: currentColor; }

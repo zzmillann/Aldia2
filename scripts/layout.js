@@ -33,13 +33,13 @@
   const brand = '<a href="index.html" class="nav__brand" aria-label="Aldia, inicio"><img src="./assets/logo-circulo.png" alt="" width="28" height="28">aldia</a>';
 
   const SERVICES = [
-    { href: 'servicios.html#automatizacion', t: 'Automatización con IA', d: 'Flujos que trabajan solos entre tus herramientas.', img: 'n8n.svg' },
-    { href: 'servicios.html#agentes', t: 'Agentes y chatbots', d: 'Atienden, cualifican y reservan 24/7.', img: 'openai.svg' },
-    { href: 'servicios.html#apps', t: 'Apps a medida', d: 'Agendas, partes, stock o portales, a tu medida.', img: 'supabase.svg' },
-    { href: 'servicios.html#web', t: 'Webs que convierten', d: 'Rápidas, con SEO y conectadas a tu CRM.', img: 'nextdotjs.svg' },
-    { href: 'saas.html', t: 'SaaS de suscripción', d: 'Nuestras apps y cómo lanzamos la tuya.', img: 'stripe.svg' }
+    { href: 'servicios.html#automatizacion', t: 'Automatización con IA', d: 'Flujos que trabajan solos entre tus herramientas.', img: 'automatizacion.svg' },
+    { href: 'servicios.html#agentes', t: 'Agentes y chatbots', d: 'Atienden, cualifican y reservan 24/7.', img: 'agentes.svg' },
+    { href: 'servicios.html#apps', t: 'Apps a medida', d: 'Agendas, partes, stock o portales, a tu medida.', img: 'apps.svg' },
+    { href: 'servicios.html#web', t: 'Webs que convierten', d: 'Rápidas, con SEO y conectadas a tu CRM.', img: 'web.svg' },
+    { href: 'saas.html', t: 'SaaS de suscripción', d: 'Nuestras apps y cómo lanzamos la tuya.', img: 'saas.svg' }
   ];
-  const card = s => `<a href="${s.href}" class="mcard"><span class="mcard__ico"><img src="./assets/logos/${s.img}" alt=""></span><span><b>${s.t}</b><small>${s.d}</small></span></a>`;
+  const card = s => `<a href="${s.href}" class="mcard"><span class="mcard__ico"><img src="./assets/iconos/${s.img}" alt=""></span><span><b>${s.t}</b><small>${s.d}</small></span></a>`;
   const glyph = (p) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
 
   const nav = `
