@@ -3,7 +3,7 @@
   // Redes sociales: rellena la URL y aparecen solas en el footer. Vacías = ocultas.
   const SOCIAL = {
     discord:   'https://discord.gg/huftNymgT',
-    linkedin:  '',
+    linkedin:  'https://www.linkedin.com/company/aldia-project/',
     instagram: '',
     tiktok:    '',
     youtube:   'https://www.youtube.com/channel/UCcpICB6kew9aQgBzzZUxtuw',
@@ -52,7 +52,6 @@
           : `<li><a href="${l.href}" class="${l.key === page ? 'is-active' : ''}${l.key === 'comunidad' ? ' nav-dc' : ''}">${l.key === 'comunidad' ? `<span class="nav-dc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS.discord}</svg></span>` : ''}${l.label}</a></li>`).join('')}
       </ul>
       <div class="nav__cta">
-        <a href="${DISCORD}" target="_blank" rel="noopener" class="btn btn--line btn--sm">Únete a la comunidad</a>
         <a href="auditoria.html" class="btn btn--dark btn--sm nav__audit">Pedir auditoría</a>
         <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav">
           <span></span><span></span>
@@ -190,9 +189,9 @@
     <section class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Preferencias de cookies">
       <div class="ck__row">
         <span class="ck__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 4 4 0 0 1-5-5 4 4 0 0 1-4-4z"/><path d="M8.5 11.5h.01M12 16h.01M15.5 13h.01"/></svg></span>
-        <p class="ck__txt"><b>Solo las cookies necesarias.</b> El resto, si tú quieres. <a href="cookies.html">Más info</a></p>
+        <p class="ck__txt">Solo usamos cookies necesarias. <a href="cookies.html">Más info</a></p>
         <div class="ck__btns">
-          <button class="ck__b" data-ck="cfg">Ajustes</button>
+          <button class="ck__b ck__b--link" data-ck="cfg">Ajustes</button>
           <button class="ck__b" data-ck="no">Rechazar</button>
           <button class="ck__b ck__b--ok" data-ck="ok">Aceptar</button>
         </div>
@@ -216,7 +215,9 @@
     if (a.dataset.ck === 'no') store({ analitica: false, marketing: false });
     if (a.dataset.ck === 'save') store(cats());
   });
-  if (!saved) setTimeout(() => ck.classList.add('is-on'), 900);
+  // aparece tarde y nunca encima de la intro de la home
+  const showCk = () => { if (document.documentElement.classList.contains('intro-on')) return setTimeout(showCk, 800); ck.classList.add('is-on'); };
+  if (!saved) setTimeout(showCk, 2500);
   // Reabrir desde cualquier enlace con data-cookies (p. ej. en la página de cookies)
   document.querySelectorAll('[data-cookies]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ck.classList.add('is-on', 'is-open'); }));
 })();

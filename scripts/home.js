@@ -50,6 +50,7 @@
       fill.style.transform = `scaleY(${p})`;
       let active = 0;
       steps.forEach((s, k) => { const on = s.getBoundingClientRect().top < vh * .6; s.classList.toggle('is-on', on); if (on) active = k; });
+      steps.forEach((s, k) => s.classList.toggle('is-cur', s.classList.contains('is-on') && k === active));
       num.textContent = '0' + (active + 1);
     }
   };

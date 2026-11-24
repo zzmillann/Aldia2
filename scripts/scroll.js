@@ -59,13 +59,27 @@
     else { vids.forEach(v => v && v.pause()); cancelAnimationFrame(raf); }
   }, { threshold: .35 }).observe(sc);
 
-  // móvil: cada ejemplo se reproduce al verse, en bucle
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (!mobile()) return;
-    const v = e.target.querySelector('video');
-    if (e.isIntersecting) { load(v); v.play().catch(() => {}); } else v.pause();
-  }), { threshold: .5 });
-  media.forEach(m => io.observe(m));
+  // móvil: no se muestran los vídeos; al pulsar un ejemplo, su vídeo se despliega debajo (solo se descarga entonces)
+  const drops = items.map((it, k) => {
+    const src = vids[k];
+    const box = it.querySelector(':scope > div') || it;
+    box.insertAdjacentHTML('beforeend', `<button type="button" class="sc__more" aria-expanded="false">Ver vídeo<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 6 4 4 4-4"/></svg></button>
+      <div class="sc__drop"><div><div class="sc__dv"><video muted loop playsinline preload="none" poster="${src ? src.getAttribute('poster') : ''}"></video></div></div></div>`);
+    const d = box.querySelector('.sc__drop'), v = d.querySelector('video');
+    if (src) { v.dataset.srcHd = src.dataset.srcHd; if (src.dataset.src4k) v.dataset.src4k = src.dataset.src4k; }
+    return { it, d, v, btn: box.querySelector('.sc__more') };
+  });
+  const toggle = k => {
+    drops.forEach((o, j) => {
+      const open = j === k && !o.it.classList.contains('is-drop');
+      o.it.classList.toggle('is-drop', open); o.btn.setAttribute('aria-expanded', open);
+      if (open) { load(o.v); const go = () => o.v.play().catch(() => {}); go(); o.v.addEventListener('canplay', go, { once: true }); } else o.v.pause();
+    });
+  };
+  drops.forEach((o, k) => o.it.addEventListener('click', e => {
+    if (!mobile() || e.target.closest('a')) return;
+    toggle(k);
+  }));
 
   addEventListener('resize', setLoop);
   setLoop(); activate(0);

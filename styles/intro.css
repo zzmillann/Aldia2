@@ -50,3 +50,84 @@ html.intro-enter #nav { animation: introNav .9s var(--ease, ease) .5s both; }
   .intro.is-out .intro__circle, .intro.is-gone { transition-duration: .01s; }
   html.intro-enter .hero-content h1, html.intro-enter .hero-content p, html.intro-enter .hero-image, html.intro-enter #nav { animation-duration: .01s; animation-delay: 0s; }
 }
+
+/* salida «de película» (24-11): vídeo a blanco + vuelo sobre el planeta de puntos */
+.intro.is-fly .intro__ui > * { opacity: 0; transform: translateY(14px); transition-delay: 0s; }
+.intro.is-fly .intro__v { opacity: 0; transition: opacity .45s ease; }
+.intro__fly { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; transition: none; }
+.intro.is-fly.is-gone { transform: none; background: transparent; opacity: 0; transition: opacity .8s ease .15s; }
+.intro.is-fly.is-gone .intro__fly { opacity: 1; }
+
+/* entrada de la portada nueva después de la intro */
+html.intro-on .hx__copy > *, html.intro-on .hx__viz { opacity: 0; }
+html.intro-enter .hx__copy > * { animation: introUp 1s var(--ease, ease) both; }
+html.intro-enter .hx__copy > :nth-child(1) { animation-delay: .15s; }
+html.intro-enter .hx__copy > :nth-child(2) { animation-delay: .3s; }
+html.intro-enter .hx__copy > :nth-child(3) { animation-delay: .45s; }
+html.intro-enter .hx__viz { animation: introFade 1s ease .1s both; }
+@keyframes introFade { from { opacity: 0; } to { opacity: 1; } }
+
+/* salida épica: noche, destello y franjas de cine */
+.intro__night { position: absolute; inset: 0; background: radial-gradient(80% 70% at 50% 50%, #101a4a 0%, #060A1F 70%); opacity: 0; pointer-events: none; }
+.intro__flash { position: absolute; inset: 0; background: radial-gradient(60% 60% at 50% 50%, #fff 30%, #EEF2FF 100%); opacity: 0; pointer-events: none; }
+.intro__bars { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+.intro__bars i { position: absolute; left: 0; right: 0; height: 11vh; background: #05070F; transition: transform .7s cubic-bezier(.7,0,.2,1); }
+.intro__bars i:first-child { top: 0; transform: translateY(-100%); }
+.intro__bars i:last-child { bottom: 0; transform: translateY(100%); }
+.intro__bars.is-on i { transform: none; }
+
+/* salida limpia (24-11, v3) */
+.intro.is-fly .intro__v { opacity: 0; transform: scale(.94); border-radius: 28px; transition: transform .8s cubic-bezier(.65,0,.35,1), opacity .55s ease .2s, border-radius .8s ease; }
+
+/* salida sin corte (24-11, v4): la portada hace la transición */
+html.intro-on .hx__viz { opacity: 1; }
+html.intro-enter .hx__viz { animation: none; }
+.hx__viz.is-intro { pointer-events: none; }
+.hx__viz.is-intro::after { opacity: 0; }
+.hx__viz.is-intro .hx__hint { opacity: 0; }
+.hx--c .hx__viz::after { transition: opacity .8s ease; }
+.intro.is-fly.is-gone { transition: opacity 1.1s ease; }
+html.intro-enter .hx__copy > :nth-child(1) { animation-delay: .35s; }
+html.intro-enter .hx__copy > :nth-child(2) { animation-delay: .55s; }
+html.intro-enter .hx__copy > :nth-child(3) { animation-delay: .75s; }
+html.intro-enter #nav { animation-delay: .9s; }
+
+/* la portada hace de transición: por encima de la intro y sin fondo mientras dura */
+.hx__bg { transition: opacity 1s ease; }
+.hx.is-intro-host { z-index: 10001; background: transparent; }
+.hx.is-intro-host .hx__bg { opacity: 0; }
+
+/* el menú se centra con translateX(-50%): la animación de entrada lo conserva (antes salía desplazado y saltaba) */
+html.intro-on #nav { opacity: 0; transform: translate(-50%, -20px); }
+@keyframes introNav { from { opacity: 0; transform: translate(-50%, -20px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* durante la intro la barra de scroll sigue visible (bloqueada por JS): el ancho no cambia al acabar y no hay franja */
+html.intro-on { overflow-y: scroll; }
+html.intro-on body { overflow: visible; }
+
+/* el fondo lo controla la transición (sin fundido aparte al final) */
+.hx.is-intro-host .hx__bg { opacity: 0; transition: none; }
+
+/* controles en la esquina inferior izquierda: ahí no llega ningún elemento del vídeo (antes, en el centro, los pisaban) */
+.intro__ui { left: clamp(1.25rem, 3.2vw, 2.75rem); right: auto; bottom: clamp(1.25rem, 3.6vh, 2.5rem);
+  display: grid; grid-template-columns: auto auto; grid-template-areas: "snd time" "snd skip"; align-items: center; justify-items: start; column-gap: .55rem; row-gap: .1rem; }
+.intro__snd { grid-area: snd; margin: 10px; }
+.intro__time { grid-area: time; align-self: end; padding-left: .8rem; }
+.intro__skip { grid-area: skip; align-self: start; margin-top: 0; }
+
+/* contador de la intro: número grande y limpio */
+.intro__time { display: grid; gap: .1rem; font: inherit; letter-spacing: 0; color: var(--ink, #0E0E0E); padding-left: .55rem; }
+.intro__n { display: inline-flex; align-items: baseline; gap: .12rem; overflow: hidden; height: 1.75rem; }
+.intro__n b { display: inline-block; min-width: 2ch; font: 600 1.6rem/1.75rem Geist, system-ui, sans-serif; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.intro__n b.is-tick { animation: itTick .45s cubic-bezier(.2,.9,.25,1) both; }
+.intro__n i { font: 500 .85rem/1 Geist, system-ui, sans-serif; font-style: normal; color: #8A8F98; }
+.intro__time small { font: 500 .66rem/1 'Geist Mono', ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: #8A8F98; }
+@keyframes itTick { from { transform: translateY(70%); opacity: 0; filter: blur(2px); } to { transform: none; opacity: 1; filter: none; } }
+.intro__ui { grid-template-areas: "snd time" "snd skip"; row-gap: .35rem; }
+.intro__skip { padding-left: .55rem; font-size: .88rem; }
+
+/* controles otra vez abajo en el centro (como estaban), con el contador nuevo */
+.intro__ui { left: 0; right: 0; bottom: clamp(1.25rem, 4vh, 2.5rem); display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+.intro__time { padding-left: 0; justify-items: center; text-align: center; }
+.intro__skip { padding-left: .8rem; margin-top: .1rem; }
+.intro__ui > .intro__time, .intro__ui > .intro__skip, .intro__ui > .intro__snd { align-self: center; grid-area: auto; }

@@ -20,7 +20,7 @@
   };
 
   document.body.insertAdjacentHTML('beforeend', `
-    <button id="ac-trigger" aria-label="Abrir asistente de Aldia">${ico.chat}<span>¿Hablamos?</span></button>
+    <button id="ac-trigger" aria-label="Abrir el asistente de Aldia"><img class="abot3d" src="./assets/bot/aldia-bot.webp?v=1124c" alt="" width="96" height="96" draggable="false"></button>
     <section id="ac-win" role="dialog" aria-label="Asistente de Aldia" aria-hidden="true">
       <header class="ac-head">
         <img src="./assets/logo-circulo.png" alt="">
