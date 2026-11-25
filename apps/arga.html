@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruta · Distribuciones Arga</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./arga/arga.css?v=3">
+</head>
+<body>
+<div id="stage">
+  <aside class="sb">
+    <div class="sb__brand">
+      <span class="sb__logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"/></svg></span>
+      <div><b>Ruta</b><small>Distribuciones Arga</small></div>
+    </div>
+    <nav class="sb__nav" id="nav"></nav>
+    <div class="sb__day">
+      <div class="sb__dayh"><span>Jornada</span><b class="mono" id="sb-pct">71 %</b></div>
+      <div class="bar"><i id="sb-bar" style="transform:scaleX(.71)"></i></div>
+      <div class="sb__dayf mono"><span>07:00</span><span>15:00</span></div>
+    </div>
+    <div class="sb__me">
+      <img class="face" src="../assets/apps/caras/cara7.webp" alt="" width="32" height="32">
+      <div><b>Óscar Prieto</b><small>Jefe de tráfico</small></div>
+      <svg class="ic" viewBox="0 0 24 24"><path d="M8 10l4 4 4-4"/></svg>
+    </div>
+  </aside>
+
+  <header class="tb">
+    <div class="tb__crumbs"><span>Operaciones</span><svg class="ic" viewBox="0 0 24 24"><path d="M10 7l5 5-5 5"/></svg><b id="crumb">Torre de control</b></div>
+    <div class="tb__search"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><span>Buscar cliente, pedido o albarán…</span><kbd>Ctrl K</kbd></div>
+    <div class="tb__ask"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg>Pregunta al asistente</div>
+    <div class="tb__sp"></div>
+    <div class="tb__wx"><svg class="ic" viewBox="0 0 24 24"><path d="M7 17h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.2 9.5 3.75 3.75 0 0 0 7 17z"/></svg><span class="mono">9 °C</span><small>Pamplona</small></div>
+    <div class="tb__clock"><span class="live"></span><b class="mono" id="clock">10:44:00</b><small>mar 24 nov</small></div>
+    <button class="tb__bell" aria-label="Avisos"><svg class="ic" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20a2 2 0 0 0 4 0"/></svg><i id="bell">2</i></button>
+    <button class="btn btn--accent"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nuevo pedido</button>
+  </header>
+
+  <main class="ct">
+    <div class="ph">
+      <div class="ph__t"><h1 id="ph-t">Torre de control</h1><p id="ph-s"></p></div>
+      <div class="ph__r" id="ph-r"></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <section class="map" id="map">
+      <canvas id="gl"></canvas>
+      <div class="map__vig"></div>
+      <div class="map__labels" id="labels"></div>
+      <div class="map__ui" id="mapui"></div>
+      <div class="ov" id="ov"></div>
+    </section>
+  </main>
+
+  <div class="cardui" id="cardui"></div>
+  <div class="toasts" id="toasts"></div>
+  <div class="cursor" id="cursor"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.2 1.6L10 19z"/></svg></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="./arga/datos.js?v=3"></script>
+<script src="./arga/mapa3d.js?v=3"></script>
+<script src="./arga/app.js?v=3"></script>
+</body>
+</html>

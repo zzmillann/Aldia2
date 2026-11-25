@@ -2934,3 +2934,15 @@ html.pfm-open, html.pfm-open body { overflow: hidden; }
   .sc__dv { margin-top: .9rem; border-radius: 14px; overflow: hidden; aspect-ratio: 16 / 10.2; background: #EEF2FF; box-shadow: 0 0 0 1px var(--line), 0 20px 40px -24px rgba(11,21,51,.35); }
   .sc__dv video { width: 100%; height: 100%; object-fit: cover; display: block; }
 }
+
+/* chips del portfolio con el logo real de cada herramienta */
+.pf__meta li.pf__chip { display: inline-flex; align-items: center; gap: .45rem; padding: .38rem .8rem .38rem .55rem; }
+.pf__chip img { width: 16px; height: 16px; flex: none; object-fit: contain; }
+
+/* apps vivas del portfolio (iframes con apps/<k>.html) */
+.pf__shot--live { position: relative; aspect-ratio: 16 / 9; background: linear-gradient(160deg, #EEF2FF, #F7F9FF); }
+.pf__shot--live iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; pointer-events: none; opacity: 0; transition: opacity .5s ease; }
+.pf__shot--live.is-ready iframe { opacity: 1; }
+.pfm__stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; opacity: 0; transition: opacity .45s ease; }
+.pfm__stage.is-ready iframe { opacity: 1; }
+.pfm__veil { position: absolute; inset: 0; }

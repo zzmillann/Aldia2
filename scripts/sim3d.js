@@ -42,19 +42,23 @@
   // tapa luminosa en la barra del último mes
   const cap = new THREE.Mesh(new THREE.BoxGeometry(.86, .06, .86), new THREE.MeshBasicMaterial({ color: 0xffffff })); scene.add(cap);
 
-  let data = model(), mx = 1, hover = -1, t0 = performance.now(), vis = false;
-  function layout() {
+  // Escala absoluta (no normalizada): al mover cualquier dato las barras crecen o encogen de verdad.
+  // Raíz suavizada con techo, para que de 30 € a 350.000 €/mes todo quepa y se note cada cambio.
+  const H = mrr => 12 * (1 - Math.exp(-1.6 * Math.sqrt(Math.max(0, mrr) / 250) / 12));
+  let data = model(), hover = -1, t0 = performance.now(), vis = false, tChange = -1e9, top = 6, look = { y: 3.2 }, span = 18;
+  function layout(wave) {
     const n = S.h, width = (n - 1) * GAP;
-    mx = Math.max(...data.out.map(d => d.mrr), 1);
+    top = 0;
     bars.forEach((b, i) => {
-      const on = i < n; b.userData.show = on ? 1 : 0;
+      const on = i < n, u = b.userData; u.show = on ? 1 : 0;
       b.position.x = i * GAP - width / 2; b.position.z = 0;
-      b.userData.t = on ? Math.max(.05, data.out[i].mrr / mx * 9) : .001;
-      const k = on ? i / Math.max(1, n - 1) : 0; b.material.color.copy(cB).lerp(cA, k);
-      b.userData.lb.textContent = on ? (n <= 12 ? MON[i] : (i % 3 === 2 ? 'M' + (i + 1) : '')) : '';
+      u.t = on ? Math.max(.05, H(data.out[i].mrr)) : .001; if (on) top = Math.max(top, u.t);
+      u.delay = i * (n > 12 ? 14 : 32);
+      const k = on ? i / Math.max(1, n - 1) : 0; u.col = cB.clone().lerp(cA, k);
+      u.lb.textContent = on ? (n <= 12 ? MON[i] : (i % 3 === 2 ? 'M' + (i + 1) : '')) : '';
     });
-    const span = width + 4;
-    cam.position.set(-span * .18, span * .42 + 4, span * .95 + 6); cam.lookAt(0, 3.2, 0);
+    span = width + 4;
+    if (wave) tChange = performance.now();
   }
   function size() { const w = wrap.clientWidth, h = wrap.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
   new ResizeObserver(size).observe(wrap); size();
@@ -66,15 +70,27 @@
   new IntersectionObserver(([e]) => { vis = e.isIntersecting; if (vis) t0 = performance.now(); }, { threshold: .2 }).observe(wrap);
 
   const v = new THREE.Vector3();
+  let prev = performance.now();
   function loop(now) {
+    const dt = Math.min(64, now - prev); prev = now;
     requestAnimationFrame(loop);
     if (!vis) return;
     const el = (now - t0) / 1000;
+    const sinceChange = now - tChange;
+    // cámara que se reencuadra sola cuando las barras suben o bajan mucho
+    look.y += (Math.max(2.4, top * .42) - look.y) * .06;
+    cam.position.set(-span * .18, span * .42 + 4 + look.y * .55, span * .95 + 6 + look.y * .5); cam.lookAt(0, look.y, 0);
     bars.forEach((b, i) => {
       const u = b.userData, delay = Math.max(0, Math.min(1, (el - i * .035) / .6));
-      u.h += (u.t * delay - u.h) * .12; b.scale.y = Math.max(.001, u.h);
+      // cada barra sigue al dato con un pelín más de retraso que la anterior (ola de izquierda a derecha)
+      // y llega con un muelle con algo de rebote
+      if (u.lt === undefined) u.lt = u.t;
+      u.lt += (u.t - u.lt) * (1 - Math.exp(-dt / (40 + (u.delay || 0) * 2.2)));
+      u.v = ((u.v || 0) + (u.lt * delay - u.h) * .09) * .78; u.h += u.v; b.scale.y = Math.max(.001, u.h);
       b.visible = u.show > 0 || u.h > .01;
-      const hv = i === hover; b.material.emissive = b.material.emissive || new THREE.Color(); b.material.emissive.setRGB(hv ? .12 : 0, hv ? .16 : 0, hv ? .35 : 0);
+      const glow = Math.min(1, Math.abs(u.v) * 6) * (sinceChange < 2500 ? 1 : 0);
+      b.material.color.lerp(u.col || cB, .1);
+      const hv = i === hover; b.material.emissive = b.material.emissive || new THREE.Color(); b.material.emissive.setRGB(hv ? .12 : glow * .1, hv ? .16 : glow * .15, hv ? .35 : glow * .4);
       v.set(b.position.x, -.2, .6).project(cam);
       u.lb.style.transform = `translate(${(v.x * .5 + .5) * wrap.clientWidth}px, ${(-v.y * .5 + .5) * wrap.clientHeight}px)`;
     });
@@ -91,7 +107,7 @@
   requestAnimationFrame(loop);
 
   /* ---------- controles ---------- */
-  function paint() {
+  function paint(wave) {
     data = model();
     q('[data-o="when"]').textContent = { 12: 'En 1 año', 24: 'En 2 años', 36: 'En 3 años' }[S.h];
     q('[data-o="subs"]').textContent = fmt(data.subs);
@@ -99,11 +115,11 @@
     q('[data-o="arr"]').textContent = fmt(data.mrr * 12);
     q('[data-o="total"]').textContent = fmt(data.total);
     ['price', 'new', 'churn'].forEach(k => { q(`[data-o="${k}"]`).textContent = String(S[k]).replace('.', ','); const r = q(`input[data-k="${k}"]`); r.value = S[k]; r.style.setProperty('--p', (S[k] - r.min) / (r.max - r.min) * 100 + '%'); });
-    layout();
+    layout(wave);
     const big = q('[data-o="mrr"]'); big.classList.remove('bump'); void big.offsetWidth; big.classList.add('bump');
   }
-  qa('input[data-k]').forEach(r => r.addEventListener('input', () => { S[r.dataset.k] = +r.value; qa('[data-p]').forEach(b => b.classList.remove('is-on')); paint(); }));
-  qa('[data-p]').forEach(b => b.addEventListener('click', () => { Object.assign(S, PRE[b.dataset.p]); qa('[data-p]').forEach(x => x.classList.toggle('is-on', x === b)); t0 = performance.now(); bars.forEach(x => x.userData.h = .001); paint(); }));
-  qa('[data-h]').forEach(b => b.addEventListener('click', () => { S.h = +b.dataset.h; qa('[data-h]').forEach(x => x.classList.toggle('is-on', x === b)); paint(); }));
+  qa('input[data-k]').forEach(r => r.addEventListener('input', () => { S[r.dataset.k] = +r.value; qa('[data-p]').forEach(b => b.classList.remove('is-on')); paint(true); }));
+  qa('[data-p]').forEach(b => b.addEventListener('click', () => { Object.assign(S, PRE[b.dataset.p]); qa('[data-p]').forEach(x => x.classList.toggle('is-on', x === b)); t0 = performance.now(); bars.forEach(x => { x.userData.h = .001; x.userData.v = 0; }); paint(true); }));
+  qa('[data-h]').forEach(b => b.addEventListener('click', () => { S.h = +b.dataset.h; qa('[data-h]').forEach(x => x.classList.toggle('is-on', x === b)); paint(true); }));
   paint();
 })();
