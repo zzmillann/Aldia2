@@ -50,7 +50,7 @@
         <div class="pfm__info">
           <small class="pfm__k"></small><h3 id="pfm-t"></h3><p class="pfm__txt"></p>
           <h5>Lo que hace</h5><ul class="pfm__list"></ul>
-          <div class="pfm__pie"><a class="btn btn--dark btn--sm" href="auditoria.html">Quiero una así</a><button type="button" class="pfm__sig" data-sig></button></div>
+          <div class="pfm__pie"><a class="btn btn--dark btn--sm" href="auditoria">Quiero una así</a><button type="button" class="pfm__sig" data-sig></button></div>
         </div>
       </div>
     </div>`);

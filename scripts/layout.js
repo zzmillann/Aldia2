@@ -21,30 +21,30 @@
   };
 
   const LINKS = [
-    { href: 'index.html#aldia', label: 'Qué es Aldia', key: 'aldia' },
-    { href: 'servicios.html', label: 'Servicios', key: 'servicios' },
-    { href: 'saas.html', label: 'SaaS', key: 'saas' },
-    { href: 'comunidad.html', label: 'Community', key: 'comunidad' }
+    { href: './#aldia', label: 'Qué es Aldia', key: 'aldia' },
+    { href: 'servicios', label: 'Servicios', key: 'servicios' },
+    { href: 'saas', label: 'SaaS', key: 'saas' },
+    { href: 'comunidad', label: 'Community', key: 'comunidad' }
   ];
 
   const page = document.body.dataset.page || '';
   const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
-  const brand = '<a href="index.html" class="nav__brand" aria-label="Aldia, inicio"><img src="./assets/logo-circulo.png" alt="" width="28" height="28">aldia</a>';
+  const brand = '<a href="./" class="nav__brand" aria-label="Aldia, inicio"><img src="./assets/logo-circulo.png" alt="" width="28" height="28">aldia</a>';
 
   const SERVICES = [
-    { href: 'servicios.html#automatizacion', t: 'Automatización con IA', d: 'Flujos que trabajan solos entre tus herramientas.', img: 'automatizacion.svg' },
-    { href: 'servicios.html#agentes', t: 'Agentes y chatbots', d: 'Atienden, cualifican y reservan 24/7.', img: 'agentes.svg' },
-    { href: 'servicios.html#apps', t: 'Apps a medida', d: 'Agendas, partes, stock o portales, a tu medida.', img: 'apps.svg' },
-    { href: 'servicios.html#web', t: 'Webs que convierten', d: 'Rápidas, con SEO y conectadas a tu CRM.', img: 'web.svg' },
-    { href: 'saas.html', t: 'SaaS de suscripción', d: 'Nuestras apps y cómo lanzamos la tuya.', img: 'saas.svg' }
+    { href: 'servicios#automatizacion', t: 'Automatización con IA', d: 'Flujos que trabajan solos entre tus herramientas.', img: 'automatizacion.svg' },
+    { href: 'servicios#agentes', t: 'Agentes y chatbots', d: 'Atienden, cualifican y reservan 24/7.', img: 'agentes.svg' },
+    { href: 'servicios#apps', t: 'Apps a medida', d: 'Agendas, partes, stock o portales, a tu medida.', img: 'apps.svg' },
+    { href: 'servicios#web', t: 'Webs que convierten', d: 'Rápidas, con SEO y conectadas a tu CRM.', img: 'web.svg' },
+    { href: 'saas', t: 'SaaS de suscripción', d: 'Nuestras apps y cómo lanzamos la tuya.', img: 'saas.svg' }
   ];
   const card = s => `<a href="${s.href}" class="mcard"><span class="mcard__ico"><img src="./assets/iconos/${s.img}" alt=""></span><span><b>${s.t}</b><small>${s.d}</small></span></a>`;
   const glyph = (p) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
 
   const nav = `
     <header class="nav" id="nav">
-      <a href="index.html" class="nav__brand nav__brand--icon" aria-label="Aldia, inicio"><img src="./assets/logo-circulo.png" alt="Aldia" width="34" height="34"></a>
+      <a href="./" class="nav__brand nav__brand--icon" aria-label="Aldia, inicio"><img src="./assets/logo-circulo.png" alt="Aldia" width="34" height="34"></a>
       <ul class="nav__links">
         ${LINKS.map(l => l.key === 'servicios'
           ? `<li class="has-drop"><a href="${l.href}" class="${l.key === page ? 'is-active' : ''}">${l.label}<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a>
@@ -52,7 +52,7 @@
           : `<li><a href="${l.href}" class="${l.key === page ? 'is-active' : ''}${l.key === 'comunidad' ? ' nav-dc' : ''}">${l.key === 'comunidad' ? `<span class="nav-dc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS.discord}</svg></span>` : ''}${l.label}</a></li>`).join('')}
       </ul>
       <div class="nav__cta">
-        <a href="auditoria.html" class="btn btn--dark btn--sm nav__audit">Pedir auditoría</a>
+        <a href="auditoria" class="btn btn--dark btn--sm nav__audit">Pedir auditoría</a>
         <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav">
           <span></span><span></span>
         </button>
@@ -61,15 +61,15 @@
     <nav class="mnav" id="mnav" aria-label="Menú">
       <div class="mnav__scroll">
         <p class="mnav__label">Aldia</p>
-        <a href="index.html#aldia" class="mcard"><span class="mcard__ico">${glyph('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/>')}</span><span><b>Qué es Aldia</b><small>Quiénes somos y cómo pensamos.</small></span></a>
-        <a href="index.html#como-trabajamos" class="mcard"><span class="mcard__ico">${glyph('<path d="M4 6h16M4 12h10M4 18h6"/>')}</span><span><b>Cómo trabajamos</b><small>Todo empieza por una auditoría.</small></span></a>
+        <a href="./#aldia" class="mcard"><span class="mcard__ico">${glyph('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/>')}</span><span><b>Qué es Aldia</b><small>Quiénes somos y cómo pensamos.</small></span></a>
+        <a href="./#como-trabajamos" class="mcard"><span class="mcard__ico">${glyph('<path d="M4 6h16M4 12h10M4 18h6"/>')}</span><span><b>Cómo trabajamos</b><small>Todo empieza por una auditoría.</small></span></a>
         <p class="mnav__label">Servicios</p>
         ${SERVICES.map(card).join('')}
         <p class="mnav__label">Community</p>
-        <a href="comunidad.html" class="mcard mcard--accent"><span class="mcard__ico"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS.discord}</svg></span><span><b>Aldia Community</b><small>Gratis en Discord: retos, herramientas y noticias de IA.</small></span></a>
+        <a href="comunidad" class="mcard mcard--accent"><span class="mcard__ico"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS.discord}</svg></span><span><b>Aldia Community</b><small>Gratis en Discord: retos, herramientas y noticias de IA.</small></span></a>
       </div>
       <div class="mnav__foot">
-        <a href="auditoria.html" class="btn btn--dark">Pedir auditoría gratuita ${arrow}</a>
+        <a href="auditoria" class="btn btn--dark">Pedir auditoría gratuita ${arrow}</a>
       </div>
     </nav>`;
 
@@ -88,25 +88,25 @@
           <div>
             <h5>Aldia</h5>
             <ul>
-              <li><a href="index.html#aldia">Qué es Aldia</a></li>
-              <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
-              <li><a href="auditoria.html">Pedir auditoría</a></li>
+              <li><a href="./#aldia">Qué es Aldia</a></li>
+              <li><a href="./#como-trabajamos">Cómo trabajamos</a></li>
+              <li><a href="auditoria">Pedir auditoría</a></li>
             </ul>
           </div>
           <div>
             <h5>Servicios</h5>
             <ul>
-              <li><a href="servicios.html#automatizacion">Automatización con IA</a></li>
-              <li><a href="servicios.html#agentes">Agentes y chatbots</a></li>
-              <li><a href="servicios.html#apps">Apps a medida</a></li>
-              <li><a href="servicios.html#web">Webs que convierten</a></li>
-              <li><a href="saas.html">SaaS de suscripción</a></li>
+              <li><a href="servicios#automatizacion">Automatización con IA</a></li>
+              <li><a href="servicios#agentes">Agentes y chatbots</a></li>
+              <li><a href="servicios#apps">Apps a medida</a></li>
+              <li><a href="servicios#web">Webs que convierten</a></li>
+              <li><a href="saas">SaaS de suscripción</a></li>
             </ul>
           </div>
           <div>
             <h5>Community</h5>
             <ul>
-              <li><a href="comunidad.html">Aldia Community</a></li>
+              <li><a href="comunidad">Aldia Community</a></li>
               <li><a href="${DISCORD}" target="_blank" rel="noopener">Entrar en Discord</a></li>
             </ul>
           </div>
@@ -115,11 +115,11 @@
         <div class="footer__bottom">
           <span>© ${new Date().getFullYear()} Aldia Project</span>
           <nav>
-            <a href="privacidad.html">Privacidad</a>
-            <a href="cookies.html">Cookies</a>
+            <a href="privacidad">Privacidad</a>
+            <a href="cookies">Cookies</a>
             <a href="#" data-cookies>Configurar cookies</a>
-            <a href="condiciones.html">Condiciones</a>
-            <a href="aviso-legal.html">Aviso legal</a>
+            <a href="condiciones">Condiciones</a>
+            <a href="aviso-legal">Aviso legal</a>
           </nav>
         </div>
       </div>
@@ -189,7 +189,7 @@
     <section class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Preferencias de cookies">
       <div class="ck__row">
         <span class="ck__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 4 4 0 0 1-5-5 4 4 0 0 1-4-4z"/><path d="M8.5 11.5h.01M12 16h.01M15.5 13h.01"/></svg></span>
-        <p class="ck__txt">Solo usamos cookies necesarias. <a href="cookies.html">Más info</a></p>
+        <p class="ck__txt">Solo usamos cookies necesarias. <a href="cookies">Más info</a></p>
         <div class="ck__btns">
           <button class="ck__b ck__b--link" data-ck="cfg">Ajustes</button>
           <button class="ck__b" data-ck="no">Rechazar</button>

@@ -97,7 +97,7 @@
     setQuick([]);
     await say('La auditoría es gratuita: respondes 4 preguntas (2 min) y eliges hora para una llamada de 45 min.');
     setQuick([
-      { label: 'Empezar auditoría →', href: 'auditoria.html', primary: true },
+      { label: 'Empezar auditoría →', href: 'auditoria', primary: true },
       { label: 'Prefiero que me llaméis', run: leadStart },
       { label: 'Volver', run: back }
     ]);
@@ -107,8 +107,8 @@
     setQuick([]);
     await say('Hacemos cuatro cosas, siempre después de auditar:<br>• <b>Automatización con IA</b><br>• <b>Agentes y chatbots</b> (como yo)<br>• <b>Apps a medida</b><br>• <b>Webs que convierten</b><br>Y lanzamos nuestras propias <b>apps SaaS</b>.');
     setQuick([
-      { label: 'Ver servicios', href: 'servicios.html' },
-      { label: 'Ver portfolio SaaS', href: 'saas.html' },
+      { label: 'Ver servicios', href: 'servicios' },
+      { label: 'Ver portfolio SaaS', href: 'saas' },
       { label: 'Quiero una auditoría', run: audit, primary: true },
       { label: 'Volver', run: back }
     ]);
@@ -119,7 +119,7 @@
     await say('<b>Aldia Community</b> es nuestro Discord gratuito: noticias de IA, herramienta de la semana, retos y plantillas de flujos.');
     setQuick([
       { label: 'Entrar en Discord', href: DISCORD, blank: true, primary: true },
-      { label: 'Qué hay dentro', href: 'comunidad.html' },
+      { label: 'Qué hay dentro', href: 'comunidad' },
       { label: 'Volver', run: back }
     ]);
   }
@@ -179,7 +179,7 @@
       lead.email = val; mode = 'menu'; input.placeholder = 'Escribe tu pregunta…';
       sendLead();
       await say('¡Hecho! Te escribimos en menos de 24 h laborables. Si quieres adelantar, puedes rellenar ya la auditoría.');
-      setQuick([{ label: 'Rellenar auditoría', href: 'auditoria.html', primary: true }, { label: 'Volver al menú', run: back }]);
+      setQuick([{ label: 'Rellenar auditoría', href: 'auditoria', primary: true }, { label: 'Volver al menú', run: back }]);
       return;
     }
     if (mode === 'menu') { mode = 'ia'; setQuick([{ label: 'Volver al menú', run: back }]); }
